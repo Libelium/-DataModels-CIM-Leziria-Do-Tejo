@@ -1,0 +1,32 @@
+{
+  "id": "urn:ngsi-ld:AirQualityObserved:Estacao_QA_Exemplo_1",
+  "type": "AirQualityObserved",
+  "name": "Estação de qualidade do ar de exemplo 1",
+  "dateObserved": "2026-11-18T10:00:00Z",
+  "location": {
+    "type": "Point",
+    "coordinates": [-8.685, 39.236]
+  },
+  "address": {
+    "addressCountry": "PT",
+    "addressLocality": "Santarém",
+    "streetAddress": "Rua de Exemplo, 1"
+  },
+  "areaServed": "Santarém",
+  "typeofLocation": "outdoor",
+  "refDevice": "urn:ngsi-ld:Device:Estacao_QA_Exemplo_1",
+  "o3": 48.2,
+  "no2": 21.7,
+  "no": 6.3,
+  "so2": 2.1,
+  "co": 0.31,
+  "co2": 418,
+  "pm10": 17.4,
+  "pm25": 9.8,
+  "pm1": 6.1,
+  "airQualityIndex": 32,
+  "airQualityLevel": "good",
+  "temperature": 16.4,
+  "relativeHumidity": 0.72,
+  "dataProvider": "CIMLT"
+}

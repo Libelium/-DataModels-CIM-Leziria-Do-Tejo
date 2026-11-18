@@ -1,0 +1,190 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Qualidade%20do%20Ar%20e%20Som/schema/AirQualityObserved.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo, previsto",
+  "title": "AirQualityObserved",
+  "description": "Observação da qualidade do ar num ponto e num instante (concentrações de gases e de partículas). Perfil previsto para a PGU, baseado no Smart Data Model `dataModel.Environment/AirQualityObserved`; ainda sem integração ativa.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["AirQualityObserved"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `AirQualityObserved`."
+        },
+        "dateObserved": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Data e hora da observação (ISO 8601, UTC).",
+          "x-ngsi": {
+            "type": "Property",
+            "model": "https://schema.org/DateTime"
+          }
+        },
+        "typeofLocation": {
+          "type": "string",
+          "enum": ["indoor", "outdoor"],
+          "description": "Tipo de localização da medição: `outdoor` (exterior) ou `indoor` (interior).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "refDevice": {
+          "type": "string",
+          "format": "uri",
+          "description": "URN do dispositivo (`Device`) que fez a medição.",
+          "x-ngsi": {
+            "type": "Relationship"
+          }
+        },
+        "o3": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Concentração de ozono (O3).",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "µg/m³ (GQ)"
+          }
+        },
+        "no2": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Concentração de dióxido de azoto (NO2).",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "µg/m³ (GQ)"
+          }
+        },
+        "no": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Concentração de monóxido de azoto (NO).",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "µg/m³ (GQ)"
+          }
+        },
+        "so2": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Concentração de dióxido de enxofre (SO2).",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "µg/m³ (GQ)"
+          }
+        },
+        "co": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Concentração de monóxido de carbono (CO).",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "mg/m³ (GP)"
+          }
+        },
+        "co2": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Concentração de dióxido de carbono (CO2).",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "ppm (59)"
+          }
+        },
+        "sh2": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Concentração de sulfureto de hidrogénio (H2S).",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "µg/m³ (GQ)"
+          }
+        },
+        "volatileOrganicCompoundsTotal": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Concentração total de compostos orgânicos voláteis (COV).",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "ppb (61)"
+          }
+        },
+        "pm10": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Partículas com diâmetro igual ou inferior a 10 µm (PM10).",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "µg/m³ (GQ)"
+          }
+        },
+        "pm25": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Partículas com diâmetro igual ou inferior a 2,5 µm (PM2,5).",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "µg/m³ (GQ)"
+          }
+        },
+        "pm1": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Partículas com diâmetro igual ou inferior a 1 µm (PM1).",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "µg/m³ (GQ)"
+          }
+        },
+        "airQualityIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Índice de qualidade do ar calculado a partir das concentrações observadas.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "airQualityLevel": {
+          "type": "string",
+          "enum": ["good", "moderate", "unhealthyForSensitiveGroups", "unhealthy", "veryUnhealthy", "hazardous"],
+          "description": "Classificação qualitativa da qualidade do ar correspondente ao índice.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "temperature": {
+          "type": "number",
+          "description": "Temperatura do ar no ponto de medição.",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "ºC (CEL)"
+          }
+        },
+        "relativeHumidity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Humidade relativa do ar, como fração entre 0 e 1.",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "fração (C62)"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "dateObserved",
+    "location"
+  ]
+}
