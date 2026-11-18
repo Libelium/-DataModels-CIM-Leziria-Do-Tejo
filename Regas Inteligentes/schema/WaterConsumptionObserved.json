@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Regas%20Inteligentes/schema/WaterConsumptionObserved.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo, Smart Data Models dataModel.WaterConsumption",
+  "title": "WaterConsumptionObserved",
+  "description": "Medição de um caudalímetro da rede de rega inteligente: volume acumulado, caudal instantâneo e alarmes do equipamento. Perfil do modelo WaterConsumptionObserved dos Smart Data Models (dataModel.WaterConsumption), estendido com o caudal instantâneo e os alarmes de limiar do caudalímetro.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^urn:ngsi-ld:WaterConsumptionObserved:Caudalimetro_[0-9]+_flow$",
+          "description": "Identificador `urn:ngsi-ld:WaterConsumptionObserved:Caudalimetro_<n>_flow`, em que `Caudalimetro_<n>` é o `Device` medidor."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["WaterConsumptionObserved"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `WaterConsumptionObserved`."
+        },
+        "refDevice": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^urn:ngsi-ld:Device:Caudalimetro_[0-9]+$",
+          "description": "Caudalímetro (`Device`) que realiza a medição.",
+          "x-ngsi": { "type": "Relationship" }
+        },
+        "waterConsumption": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Volume total acumulado registado pelo caudalímetro (leitura do totalizador).",
+          "x-ngsi": { "type": "Property", "units": "metros cúbicos (MTQ)" }
+        },
+        "alarmInProgress": {
+          "type": "integer",
+          "enum": [0, 1],
+          "description": "Alarme global: 1 quando algum dos alarmes ou avisos do caudalímetro está ativo, 0 caso contrário.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "flow": {
+          "type": "number",
+          "description": "Extensão. Caudal instantâneo medido pelo caudalímetro, na unidade da fonte.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "totalVolumeWithoutOffset": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Extensão. Volume total acumulado sem o desvio (offset) de calibração configurado no equipamento.",
+          "x-ngsi": { "type": "Property", "units": "metros cúbicos (MTQ)" }
+        },
+        "maxFlowAlarm": {
+          "type": "boolean",
+          "description": "Extensão. Caudal acima do limiar de alarme.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "maxFlowWarning": {
+          "type": "boolean",
+          "description": "Extensão. Caudal acima do limiar de aviso.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "maxDayVolumeAlarm": {
+          "type": "boolean",
+          "description": "Extensão. Volume diário acima do limiar máximo de alarme.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "maxDayVolumeWarning": {
+          "type": "boolean",
+          "description": "Extensão. Volume diário acima do limiar máximo de aviso.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "minDayVolumeAlarm": {
+          "type": "boolean",
+          "description": "Extensão. Volume diário abaixo do limiar mínimo de alarme.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "minDayVolumeWarning": {
+          "type": "boolean",
+          "description": "Extensão. Volume diário abaixo do limiar mínimo de aviso.",
+          "x-ngsi": { "type": "Property" }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "refDevice",
+    "waterConsumption",
+    "alarmInProgress",
+    "maxFlowAlarm",
+    "maxFlowWarning",
+    "maxDayVolumeAlarm",
+    "maxDayVolumeWarning",
+    "minDayVolumeAlarm",
+    "minDayVolumeWarning"
+  ]
+}

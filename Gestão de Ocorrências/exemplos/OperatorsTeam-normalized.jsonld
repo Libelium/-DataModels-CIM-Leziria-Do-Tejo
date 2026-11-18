@@ -1,0 +1,18 @@
+{
+  "id": "urn:ngsi-ld:OperatorsTeam:TEAM-2026-000001",
+  "type": "OperatorsTeam",
+  "name": {
+    "type": "Property",
+    "value": "Equipa de Iluminação Exemplo"
+  },
+  "members": {
+    "type": "Property",
+    "value": [
+      "1002",
+      "1003"
+    ]
+  },
+  "@context": [
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

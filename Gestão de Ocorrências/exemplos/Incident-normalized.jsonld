@@ -1,0 +1,126 @@
+{
+  "id": "urn:ngsi-ld:Incident:OC-2026-0000001",
+  "type": "Incident",
+  "ref": {
+    "type": "Property",
+    "value": "OC-2026-0000001"
+  },
+  "name": {
+    "type": "Property",
+    "value": "Candeeiro de iluminação pública apagado"
+  },
+  "title": {
+    "type": "Property",
+    "value": "Candeeiro de iluminação pública apagado"
+  },
+  "description": {
+    "type": "Property",
+    "value": "O candeeiro em frente ao n.º 12 está apagado há três noites."
+  },
+  "category": {
+    "type": "Property",
+    "value": "lighting"
+  },
+  "subCategory": {
+    "type": "Property",
+    "value": "street_light_damaged"
+  },
+  "status": {
+    "type": "Property",
+    "value": "assigned"
+  },
+  "privacy": {
+    "type": "Property",
+    "value": "public"
+  },
+  "source": {
+    "type": "Property",
+    "value": "web"
+  },
+  "dateCreated": {
+    "type": "Property",
+    "value": "2026-11-10T08:30:00Z"
+  },
+  "location": {
+    "type": "Property",
+    "value": {
+      "type": "Point",
+      "coordinates": [-8.685, 39.236]
+    }
+  },
+  "severity": {
+    "type": "Property",
+    "value": "moderate"
+  },
+  "urgencyLevel": {
+    "type": "Property",
+    "value": "P3"
+  },
+  "address": {
+    "type": "Property",
+    "value": "Rua de Exemplo, 12, 2000-000 Santarém"
+  },
+  "locationValidated": {
+    "type": "Property",
+    "value": true
+  },
+  "locationAccuracy": {
+    "type": "Property",
+    "value": 8
+  },
+  "reportedBy": {
+    "type": "Property",
+    "value": "1001"
+  },
+  "notifyConsent": {
+    "type": "Property",
+    "value": true
+  },
+  "images": {
+    "type": "Property",
+    "value": [
+      "incident_exemplo_0001.jpg"
+    ]
+  },
+  "workStatus": {
+    "type": "Property",
+    "value": "assigned"
+  },
+  "assignedTo": {
+    "type": "Property",
+    "value": "2001"
+  },
+  "slaDue": {
+    "type": "Property",
+    "value": "2026-11-11T08:30:00Z"
+  },
+  "relatedAsset": {
+    "type": "Property",
+    "value": "urn:ngsi-ld:Streetlight:EXEMPLO-001"
+  },
+  "relatedAssetType": {
+    "type": "Property",
+    "value": "Streetlight"
+  },
+  "relatedAssetName": {
+    "type": "Property",
+    "value": "Candeeiro EXEMPLO-001"
+  },
+  "relatedAssetId": {
+    "type": "Property",
+    "value": "5001"
+  },
+  "chatMessage": {
+    "type": "Property",
+    "value": {
+      "message": "Obrigado pelo reporte. A equipa de iluminação já foi informada.",
+      "sender": {
+        "username": "a1b2c3d4e5",
+        "role": "municipality"
+      }
+    }
+  },
+  "@context": [
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

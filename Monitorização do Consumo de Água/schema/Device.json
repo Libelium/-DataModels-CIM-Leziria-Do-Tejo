@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Monitoriza%C3%A7%C3%A3o%20do%20Consumo%20de%20%C3%81gua/schema/Device.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo",
+  "title": "Device",
+  "description": "Contador de água com telecontagem da rede municipal (dados mestres): identificação, localização, município e entidade gestora. Baseado no modelo Device dos Smart Data Models (dataModel.Device). As leituras de consumo são publicadas na entidade WaterConsumptionObserved associada.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["Device"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `Device`."
+        },
+        "serialNumber": {
+          "type": "string",
+          "pattern": "^AW/[0-9]+$",
+          "description": "Número de série do contador na plataforma de telecontagem, no formato `AW/<n>`. O identificador da entidade usa o mesmo número com `/` substituído por `-`.",
+          "x-ngsi": {
+            "type": "Property",
+            "model": "https://schema.org/serialNumber"
+          }
+        },
+        "addressLocality": {
+          "type": "string",
+          "description": "Município (concelho) onde o contador está instalado, com o nome por extenso (por exemplo `Salvaterra de Magos`). Calculado no processo ETL por interseção das coordenadas com os limites administrativos oficiais (CAOP). Atributo de extensão: no modelo de referência corresponde a `address.addressLocality`.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "provider": {
+          "type": "string",
+          "description": "Entidade gestora do sistema de abastecimento a que pertence o contador (por exemplo `Águas do Ribatejo`, `Município de Golegã`).",
+          "x-ngsi": {
+            "type": "Property",
+            "model": "https://schema.org/provider"
+          }
+        },
+        "category": {
+          "type": "string",
+          "enum": ["meter"],
+          "description": "Categoria do dispositivo. Valor fixo `meter`. Publicado como texto (no modelo de referência é uma lista).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "controlledProperty": {
+          "type": "string",
+          "enum": ["waterConsumption"],
+          "description": "Grandeza medida pelo dispositivo. Valor fixo `waterConsumption`. Publicado como texto (no modelo de referência é uma lista).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name",
+    "serialNumber",
+    "location",
+    "addressLocality",
+    "provider",
+    "category",
+    "controlledProperty"
+  ]
+}

@@ -1,0 +1,374 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Gest%C3%A3o%20de%20Ocorr%C3%AAncias/schema/Incident.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo",
+  "title": "Incident",
+  "description": "Ocorrência urbana reportada por um cidadão (ou gerada automaticamente por um sensor) na PGU da Lezíria do Tejo: localização, categoria e subcategoria, severidade e urgência, estado do ciclo de vida, fotografias e mensagens públicas.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["Incident"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `Incident`."
+        },
+        "ref": {
+          "type": "string",
+          "pattern": "^OC-[0-9]{4}-[0-9]+$",
+          "description": "Referência legível da ocorrência (`OC-<ano>-<número>`). É também a parte final do identificador da entidade.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "name": {
+          "type": "string",
+          "description": "Nome canónico da entidade. Espelha o valor de `title`.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "title": {
+          "type": "string",
+          "description": "Título visível da ocorrência. Se não for indicado, é derivado da descrição ou da referência.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 2000,
+          "description": "Descrição livre da ocorrência (10 a 2000 caracteres).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "category": {
+          "type": "string",
+          "description": "Código da categoria, segundo a taxonomia de ocorrências configurada para o município (alinhada com o CNMD).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "subCategory": {
+          "type": "string",
+          "description": "Código da subcategoria dentro de `category`.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": ["open", "inProgress", "assigned", "resolved", "closed", "cancelled"],
+          "description": "Estado do ciclo de vida. A ocorrência é criada como `open`.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "privacy": {
+          "type": "string",
+          "enum": ["public", "private"],
+          "description": "Visibilidade: `public` (visível para os cidadãos) ou `private` (apenas interna).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "source": {
+          "type": "string",
+          "description": "Canal de origem da ocorrência (por exemplo `web`, aplicação móvel ou sensor).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "dateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Data e hora de criação da ocorrência (ISO 8601, UTC).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "location": {
+          "type": "object",
+          "description": "Localização da ocorrência: GeoJSON `Point` com coordenadas WGS84 `[longitude, latitude]`. Publicada como `Property` (ver «Desvios e decisões»). Obrigatória: sem localização não é possível criar a ocorrência.",
+          "required": ["type", "coordinates"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["Point"]
+            },
+            "coordinates": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["low", "moderate", "high", "critical"],
+          "description": "Severidade atribuída na triagem municipal.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "urgencyLevel": {
+          "type": "string",
+          "enum": ["P1", "P2", "P3", "P4"],
+          "description": "Nível de urgência, de `P1` (máxima) a `P4`. Uma severidade `critical` corresponde a `P1`.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "address": {
+          "type": "string",
+          "description": "Morada legível, obtida por geocodificação inversa da localização.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "locationValidated": {
+          "type": "boolean",
+          "description": "`true` quando a posição provém de um GPS válido ou de um marcador colocado manualmente no mapa.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "locationAccuracy": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Precisão da posição GPS, em metros.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "reportedBy": {
+          "type": "string",
+          "description": "Identificador interno do utilizador que reportou a ocorrência. A identidade real do autor não faz parte da entidade.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "notifyConsent": {
+          "type": "boolean",
+          "description": "Consentimento do autor para receber notificações de mudança de estado (por omissão `true`).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "images": {
+          "description": "Chaves de armazenamento das fotografias da ocorrência (máximo 6). Os registos mais antigos podem conter uma única chave como texto.",
+          "anyOf": [
+            {
+              "type": "array",
+              "maxItems": 6,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "publicNote": {
+          "type": "string",
+          "description": "Nota pública apresentada ao cidadão quando a ocorrência fica `resolved` ou `closed`.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "resolvedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Data e hora em que o operador deu a ocorrência por resolvida ou encerrada (ISO 8601, UTC).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "expectedResponseTime": {
+          "type": "string",
+          "description": "Tempo de resposta esperado, informativo. O prazo de serviço efetivo é calculado a partir da taxonomia e não é guardado na entidade.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "workStatus": {
+          "type": "string",
+          "enum": ["queued", "assigned", "accepted", "inProgress", "paused", "resolved", "forwarded", "escalated", "external", "noAction"],
+          "description": "Estado operacional da ordem de trabalho associada. Cada valor corresponde a um valor de `status`.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "assignedTo": {
+          "type": "string",
+          "description": "Identificador interno do operador atribuído.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "assignedTeam": {
+          "type": "string",
+          "description": "Identificador da equipa (OperatorsTeam) atribuída, ou destino em texto livre quando a ocorrência é reencaminhada ou escalada.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "assignedTeamName": {
+          "type": "string",
+          "description": "Nome legível da equipa atribuída.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "startedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Início da intervenção, registado na primeira passagem a `inProgress` (ISO 8601, UTC).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "slaDue": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Prazo de resolução (ISO 8601, UTC). Quando não existe, é calculado a partir da urgência.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "internalNotes": {
+          "type": "string",
+          "description": "Nota interna do operador (motivo do reencaminhamento, do escalamento ou da derivação). Não é mostrada ao cidadão.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "externalEntity": {
+          "type": "string",
+          "description": "Nome da entidade externa para a qual a ocorrência foi derivada (`workStatus` `external`).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "externalEntityId": {
+          "type": "integer",
+          "description": "Identificador interno do destino de derivação configurado na plataforma.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "followUpSlaDue": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Prazo de acompanhamento de uma derivação externa (ISO 8601, UTC). Quando expira, a ocorrência é encerrada.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "resolvedBy": {
+          "type": "string",
+          "description": "Operador que resolveu ou encerrou a ocorrência (nome ou identificador interno).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "resolutionNotes": {
+          "type": "string",
+          "description": "Notas internas de resolução. Não são mostradas ao cidadão.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "relatedAsset": {
+          "type": "string",
+          "pattern": "^urn:ngsi-ld:",
+          "description": "URN do ativo urbano associado à ocorrência (por exemplo uma `MunicipalTree`).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "relatedAssetType": {
+          "type": "string",
+          "description": "Tipo de entidade (modelo de dados) do ativo associado.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "relatedAssetName": {
+          "type": "string",
+          "description": "Nome legível do ativo associado.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "relatedAssetId": {
+          "type": "string",
+          "description": "Identificador local do ativo associado na plataforma.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "chatMessage": {
+          "type": "object",
+          "description": "Última mensagem trocada entre o cidadão e o município. Cada mensagem é uma nova instância do atributo, pelo que o histórico é a série temporal do atributo.",
+          "required": ["message", "sender"],
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Texto da mensagem."
+            },
+            "sender": {
+              "type": "object",
+              "required": ["username", "role"],
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "description": "Identificador pseudonimizado do autor da mensagem."
+                },
+                "role": {
+                  "type": "string",
+                  "enum": ["citizen", "municipality"],
+                  "description": "Papel do autor da mensagem."
+                }
+              }
+            }
+          },
+          "x-ngsi": {
+            "type": "Property"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "ref",
+    "name",
+    "title",
+    "description",
+    "category",
+    "status",
+    "privacy",
+    "source",
+    "dateCreated",
+    "location",
+    "notifyConsent"
+  ]
+}

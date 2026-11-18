@@ -1,0 +1,14 @@
+{
+  "id": "urn:ngsi-ld:Device:Caudalimetro_15",
+  "type": "Device",
+  "name": "Jardim do Exemplo - Caudalímetro 1",
+  "category": "meter",
+  "controlledProperty": "waterConsumption",
+  "deviceModelName": "CCBATT1",
+  "loraWanDEVEUI": "30323736E5F60718",
+  "batteryLevel": 0.97,
+  "location": {
+    "type": "Point",
+    "coordinates": [-8.6859, 39.2349]
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Gest%C3%A3o%20de%20Ocorr%C3%AAncias/schema/SpecialAnnouncement.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo, schema.org",
+  "title": "SpecialAnnouncement",
+  "description": "Aviso municipal operacional e temporário (urgência, trânsito, evento), bilingue, apresentado aos cidadãos e usado nas notificações. Baseado no tipo schema.org `SpecialAnnouncement`.",
+  "type": "object",
+  "definitions": {
+    "BilingualText": {
+      "description": "Texto bilingue `{pt, en}`, guardado como valor de uma `Property`. Também é aceite um texto simples (uma só língua).",
+      "anyOf": [
+        {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": false,
+          "properties": {
+            "pt": {
+              "type": "string",
+              "description": "Texto em português."
+            },
+            "en": {
+              "type": "string",
+              "description": "Texto em inglês."
+            }
+          }
+        },
+        {
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^urn:ngsi-ld:SpecialAnnouncement:",
+      "description": "Identificador da entidade: `urn:ngsi-ld:SpecialAnnouncement:ANN-<ano>-<número>`."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["SpecialAnnouncement"],
+      "description": "Tipo de entidade NGSI-LD. Valor fixo `SpecialAnnouncement`."
+    },
+    "name": {
+      "$ref": "#/definitions/BilingualText",
+      "description": "Título do aviso, em português e inglês (schema.org `name`).",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "text": {
+      "$ref": "#/definitions/BilingualText",
+      "description": "Conteúdo do aviso, em português e inglês (schema.org `text`).",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "category": {
+      "type": "string",
+      "enum": ["urgente", "transito", "evento"],
+      "description": "Categoria do aviso. A cor e o ícone apresentados derivam da categoria e não são guardados.",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "datePosted": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Data e hora de publicação (ISO 8601, UTC; por omissão, o momento da criação) (schema.org `datePosted`).",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "source": {
+      "type": "string",
+      "description": "Canal de origem (por exemplo `backoffice`).",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "expires": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Fim de vigência (ISO 8601, UTC). Os avisos expirados deixam de ser apresentados aos cidadãos (schema.org `expires`).",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "address": {
+      "type": "string",
+      "description": "Localização legível do aviso.",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "announcementLocation": {
+      "type": "object",
+      "description": "Ponto no mapa a que o aviso se refere: GeoJSON `Point` com coordenadas WGS84 `[longitude, latitude]`, publicado como `Property` (schema.org `announcementLocation`).",
+      "required": ["type", "coordinates"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["Point"]
+        },
+        "coordinates": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "hidden": {
+      "type": "boolean",
+      "description": "Aviso arquivado: oculto para os cidadãos e visível para os administradores (por omissão `false`).",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Chaves de armazenamento das imagens anexadas ao aviso.",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "name",
+    "text",
+    "category",
+    "datePosted",
+    "source"
+  ]
+}

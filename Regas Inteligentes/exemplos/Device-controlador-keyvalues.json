@@ -1,0 +1,12 @@
+{
+  "id": "urn:ngsi-ld:Device:ControladorRega_12",
+  "type": "Device",
+  "name": "Jardim do Exemplo - Caixa 1",
+  "category": ["actuator", "irrSystem"],
+  "deviceModelName": "CMBATT6",
+  "loraWanDEVEUI": "39363134A1B2C3D4",
+  "location": {
+    "type": "Point",
+    "coordinates": [-8.6862, 39.2351]
+  }
+}

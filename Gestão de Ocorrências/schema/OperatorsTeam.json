@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Gest%C3%A3o%20de%20Ocorr%C3%AAncias/schema/OperatorsTeam.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo",
+  "title": "OperatorsTeam",
+  "description": "Equipa ou piquete de operadores municipais, usada para atribuir intervenções (`AssetIntervention`) a um grupo. Não tem localização.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OperatorsTeam"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `OperatorsTeam`."
+        },
+        "name": {
+          "type": "string",
+          "description": "Nome da equipa.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "members": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          },
+          "description": "Identificadores internos dos operadores que compõem a equipa.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name",
+    "members"
+  ]
+}

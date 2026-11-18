@@ -1,0 +1,19 @@
+{
+  "id": "urn:ngsi-ld:WaterConsumptionObserved:Caudalimetro_15_flow",
+  "type": "WaterConsumptionObserved",
+  "refDevice": "urn:ngsi-ld:Device:Caudalimetro_15",
+  "waterConsumption": 1284.5,
+  "alarmInProgress": 0,
+  "flow": 0,
+  "totalVolumeWithoutOffset": 1284.5,
+  "maxFlowAlarm": false,
+  "maxFlowWarning": false,
+  "maxDayVolumeAlarm": false,
+  "maxDayVolumeWarning": false,
+  "minDayVolumeAlarm": false,
+  "minDayVolumeWarning": false,
+  "location": {
+    "type": "Point",
+    "coordinates": [-8.6859, 39.2349]
+  }
+}

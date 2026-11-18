@@ -1,0 +1,223 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Regas%20Inteligentes/schema/WeatherObserved.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo, Smart Data Models dataModel.Weather",
+  "title": "WeatherObserved",
+  "description": "Observação meteorológica instantânea de uma estação (consola da família Davis Vantage) da rede de rega inteligente Werrigate. Perfil do modelo WeatherObserved dos Smart Data Models (dataModel.Weather), estendido com os acumulados de chuva e de evapotranspiração usados no cálculo do balanço hídrico da rega. As leituras inválidas (valores sentinela da consola ou fora do intervalo físico) são omitidas atributo a atributo.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["WeatherObserved"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `WeatherObserved`."
+        },
+        "temperature": {
+          "type": "number",
+          "minimum": -30,
+          "maximum": 60,
+          "description": "Temperatura do ar exterior.",
+          "x-ngsi": { "type": "Property", "units": "graus Celsius (CEL)" }
+        },
+        "relativeHumidity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Humidade relativa do ar exterior, em percentagem (0 a 100), tal como é devolvida pela fonte. Difere do Smart Data Model, que usa uma fração de 0 a 1.",
+          "x-ngsi": { "type": "Property", "units": "percentagem (P1)" }
+        },
+        "dewPoint": {
+          "type": "number",
+          "minimum": -40,
+          "maximum": 50,
+          "description": "Temperatura do ponto de orvalho.",
+          "x-ngsi": { "type": "Property", "units": "graus Celsius (CEL)" }
+        },
+        "feelsLikeTemperature": {
+          "type": "number",
+          "minimum": -40,
+          "maximum": 70,
+          "description": "Temperatura aparente (índice de calor calculado pela consola).",
+          "x-ngsi": { "type": "Property", "units": "graus Celsius (CEL)" }
+        },
+        "atmosphericPressure": {
+          "type": "number",
+          "minimum": 850,
+          "maximum": 1100,
+          "description": "Pressão atmosférica reduzida ao nível do mar.",
+          "x-ngsi": { "type": "Property", "units": "hectopascal (A97)" }
+        },
+        "pressureTendency": {
+          "type": "string",
+          "description": "Tendência barométrica, com o texto devolvido pela consola (por exemplo `Steady`, `Rising Slowly`, `Falling Rapidly`).",
+          "x-ngsi": { "type": "Property" }
+        },
+        "windSpeed": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 250,
+          "description": "Velocidade instantânea do vento.",
+          "x-ngsi": { "type": "Property", "units": "quilómetros por hora (KMH)" }
+        },
+        "windDirection": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 360,
+          "description": "Direção de onde sopra o vento, em graus a partir do norte geográfico.",
+          "x-ngsi": { "type": "Property", "units": "graus (DD)" }
+        },
+        "gustSpeed": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 300,
+          "description": "Rajada máxima de vento nos últimos 10 minutos.",
+          "x-ngsi": { "type": "Property", "units": "quilómetros por hora (KMH)" }
+        },
+        "precipitation": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Precipitação acumulada na última hora.",
+          "x-ngsi": { "type": "Property", "units": "milímetros (MMT)" }
+        },
+        "solarRadiation": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1500,
+          "description": "Radiação solar global.",
+          "x-ngsi": { "type": "Property", "units": "watts por metro quadrado (D54)" }
+        },
+        "uVIndexMax": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20,
+          "description": "Índice UV. Só é publicado quando o sensor UV fornece leitura.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "windChillTemperature": {
+          "type": "number",
+          "minimum": -40,
+          "maximum": 70,
+          "description": "Extensão. Temperatura de sensação térmica pelo vento (wind chill), calculada pela consola.",
+          "x-ngsi": { "type": "Property", "units": "graus Celsius (CEL)" }
+        },
+        "thswIndex": {
+          "type": "number",
+          "minimum": -40,
+          "maximum": 80,
+          "description": "Extensão. Índice THSW da consola (temperatura aparente que combina temperatura, humidade, radiação solar e vento).",
+          "x-ngsi": { "type": "Property", "units": "graus Celsius (CEL)" }
+        },
+        "windSpeedAverage2m": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 250,
+          "description": "Extensão. Velocidade média do vento nos últimos 2 minutos.",
+          "x-ngsi": { "type": "Property", "units": "quilómetros por hora (KMH)" }
+        },
+        "windSpeedAverage10m": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 250,
+          "description": "Extensão. Velocidade média do vento nos últimos 10 minutos.",
+          "x-ngsi": { "type": "Property", "units": "quilómetros por hora (KMH)" }
+        },
+        "windDirection10m": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 360,
+          "description": "Extensão. Direção da rajada máxima dos últimos 10 minutos.",
+          "x-ngsi": { "type": "Property", "units": "graus (DD)" }
+        },
+        "precipitationRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 200,
+          "description": "Extensão. Intensidade de precipitação instantânea.",
+          "x-ngsi": { "type": "Property", "units": "milímetros por hora (H67)" }
+        },
+        "rainAccumulatedLast15m": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Extensão. Precipitação acumulada nos últimos 15 minutos.",
+          "x-ngsi": { "type": "Property", "units": "milímetros (MMT)" }
+        },
+        "rainAccumulatedLast24h": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Extensão. Precipitação acumulada nas últimas 24 horas.",
+          "x-ngsi": { "type": "Property", "units": "milímetros (MMT)" }
+        },
+        "rainAccumulatedDay": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Extensão. Precipitação acumulada desde o início do dia.",
+          "x-ngsi": { "type": "Property", "units": "milímetros (MMT)" }
+        },
+        "rainAccumulatedMonth": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Extensão. Precipitação acumulada desde o início do mês.",
+          "x-ngsi": { "type": "Property", "units": "milímetros (MMT)" }
+        },
+        "rainAccumulatedYear": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Extensão. Precipitação acumulada desde o início do ano.",
+          "x-ngsi": { "type": "Property", "units": "milímetros (MMT)" }
+        },
+        "rainStorm": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Extensão. Precipitação acumulada durante a tempestade em curso.",
+          "x-ngsi": { "type": "Property", "units": "milímetros (MMT)" }
+        },
+        "stormStartDate": {
+          "type": "number",
+          "description": "Extensão. Data de início da tempestade em curso, no formato numérico da consola. Omitido quando não há tempestade ativa.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "evapotranspirationDay": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Extensão. Evapotranspiração de referência acumulada no dia, calculada pela consola. Base do cálculo de rega (balanço evapotranspiração menos chuva).",
+          "x-ngsi": { "type": "Property", "units": "milímetros (MMT)" }
+        },
+        "evapotranspirationMonth": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Extensão. Evapotranspiração de referência acumulada no mês.",
+          "x-ngsi": { "type": "Property", "units": "milímetros (MMT)" }
+        },
+        "evapotranspirationYear": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Extensão. Evapotranspiração de referência acumulada no ano.",
+          "x-ngsi": { "type": "Property", "units": "milímetros (MMT)" }
+        },
+        "sunrise": {
+          "type": "string",
+          "description": "Extensão. Hora local do nascer do sol (`HH:MM`), calculada pela consola.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "sunset": {
+          "type": "string",
+          "description": "Extensão. Hora local do pôr do sol (`HH:MM`), calculada pela consola.",
+          "x-ngsi": { "type": "Property" }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location"
+  ]
+}

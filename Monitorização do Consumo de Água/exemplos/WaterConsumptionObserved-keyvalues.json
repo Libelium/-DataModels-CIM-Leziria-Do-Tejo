@@ -1,0 +1,12 @@
+{
+  "id": "urn:ngsi-ld:WaterConsumptionObserved:AW-10990012_WCO",
+  "type": "WaterConsumptionObserved",
+  "name": "AW/10990012_WCO",
+  "waterConsumption": 412,
+  "consumptionDelta": 3,
+  "refDevice": "urn:ngsi-ld:Device:AW-10990012",
+  "location": {
+    "type": "Point",
+    "coordinates": [-8.627, 39.205]
+  }
+}

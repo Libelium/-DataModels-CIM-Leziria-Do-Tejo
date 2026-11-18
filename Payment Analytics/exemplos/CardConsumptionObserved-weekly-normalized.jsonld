@@ -1,0 +1,112 @@
+{
+  "id": "urn:ngsi-ld:CardConsumptionObserved:20260302-141699-999999-0-620-0",
+  "type": "CardConsumptionObserved",
+  "avgOperationsPerCard": {
+    "type": "Property",
+    "value": 1.27,
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "avgValuePerCard": {
+    "type": "Property",
+    "value": 76.42,
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "avgValuePerOperation": {
+    "type": "Property",
+    "value": 60.0,
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "cardOrigin": {
+    "type": "Property",
+    "value": {
+      "country": {
+        "code": "620",
+        "name": "Portugal"
+      },
+      "townHall": {
+        "code": "0",
+        "name": "Todos os Concelhos do Cartão"
+      }
+    },
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "cardQuantity": {
+    "type": "Property",
+    "value": 950,
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "dataProvider": {
+    "type": "Property",
+    "value": "SIBS Analytics",
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "dateObserved": {
+    "type": "Property",
+    "value": "2026-03-02T00:00:00+00:00/2026-03-08T23:59:59+00:00",
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "dayType": {
+    "type": "Property",
+    "value": {
+      "code": "0",
+      "label": "Todos"
+    },
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "frequency": {
+    "type": "Property",
+    "value": "weekly",
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "isAggregate": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "operationQuantity": {
+    "type": "Property",
+    "value": 1210,
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "operationType": {
+    "type": "Property",
+    "value": "withdrawal",
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "operationValue": {
+    "type": "Property",
+    "value": 72600.0,
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "organization": {
+    "type": "Property",
+    "value": "CIMLT",
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "refZone": {
+    "type": "Property",
+    "value": {
+      "geographyType": "Freguesia",
+      "code": "141699",
+      "name": "Freguesia de Exemplo"
+    },
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "sector": {
+    "type": "Property",
+    "value": {
+      "level": "CSA 2",
+      "code": "999999",
+      "name": "Levantamentos"
+    },
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "weekOfYear": {
+    "type": "Property",
+    "value": "2026S10",
+    "observedAt": "2026-03-02T00:00:00Z"
+  },
+  "@context": [
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

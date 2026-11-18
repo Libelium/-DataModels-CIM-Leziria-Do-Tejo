@@ -1,0 +1,17 @@
+{
+  "id": "urn:ngsi-ld:PointOfInterest:POI-2026-0000001",
+  "type": "PointOfInterest",
+  "name": "Serviço Municipal de Águas (exemplo)",
+  "category": "aguas",
+  "location": {
+    "type": "Point",
+    "coordinates": [-8.688, 39.235]
+  },
+  "source": "backoffice",
+  "address": "Rua de Exemplo, 1, 2000-000 Santarém",
+  "telephone": "+351 000 000 000",
+  "openingHours": [
+    "Mo-Fr 09:00-17:00"
+  ],
+  "description": "Atendimento ao público para contratos e avarias de abastecimento de água."
+}

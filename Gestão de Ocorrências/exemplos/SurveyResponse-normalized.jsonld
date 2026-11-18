@@ -1,0 +1,32 @@
+{
+  "id": "urn:ngsi-ld:SurveyResponse:SR-2026-0000001",
+  "type": "SurveyResponse",
+  "survey": {
+    "type": "Property",
+    "value": "satisfaction-survey"
+  },
+  "answers": {
+    "type": "Property",
+    "value": [
+      { "q": "q1", "value": 4 },
+      { "q": "q2", "value": 3 },
+      { "q": "q3", "value": 5 },
+      { "q": "q4", "value": 1 }
+    ]
+  },
+  "anonymous": {
+    "type": "Property",
+    "value": true
+  },
+  "submittedAt": {
+    "type": "Property",
+    "value": "2026-11-14T11:20:00Z"
+  },
+  "channel": {
+    "type": "Property",
+    "value": "citizen-app"
+  },
+  "@context": [
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

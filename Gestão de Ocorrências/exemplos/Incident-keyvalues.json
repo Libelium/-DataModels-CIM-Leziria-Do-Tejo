@@ -1,0 +1,42 @@
+{
+  "id": "urn:ngsi-ld:Incident:OC-2026-0000001",
+  "type": "Incident",
+  "ref": "OC-2026-0000001",
+  "name": "Candeeiro de iluminação pública apagado",
+  "title": "Candeeiro de iluminação pública apagado",
+  "description": "O candeeiro em frente ao n.º 12 está apagado há três noites.",
+  "category": "lighting",
+  "subCategory": "street_light_damaged",
+  "status": "assigned",
+  "privacy": "public",
+  "source": "web",
+  "dateCreated": "2026-11-10T08:30:00Z",
+  "location": {
+    "type": "Point",
+    "coordinates": [-8.685, 39.236]
+  },
+  "severity": "moderate",
+  "urgencyLevel": "P3",
+  "address": "Rua de Exemplo, 12, 2000-000 Santarém",
+  "locationValidated": true,
+  "locationAccuracy": 8,
+  "reportedBy": "1001",
+  "notifyConsent": true,
+  "images": [
+    "incident_exemplo_0001.jpg"
+  ],
+  "workStatus": "assigned",
+  "assignedTo": "2001",
+  "slaDue": "2026-11-11T08:30:00Z",
+  "relatedAsset": "urn:ngsi-ld:Streetlight:EXEMPLO-001",
+  "relatedAssetType": "Streetlight",
+  "relatedAssetName": "Candeeiro EXEMPLO-001",
+  "relatedAssetId": "5001",
+  "chatMessage": {
+    "message": "Obrigado pelo reporte. A equipa de iluminação já foi informada.",
+    "sender": {
+      "username": "a1b2c3d4e5",
+      "role": "municipality"
+    }
+  }
+}

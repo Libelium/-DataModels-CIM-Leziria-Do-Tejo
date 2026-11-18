@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Regas%20Inteligentes/schema/Device.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo, Smart Data Models dataModel.Device",
+  "title": "Device",
+  "description": "Equipamento físico da rede de rega inteligente Werrigate: estação meteorológica, controlador de rega ou caudalímetro. Perfil do modelo Device dos Smart Data Models (dataModel.Device). A família distingue-se por `category` e pelo prefixo do identificador (`Estacao_Meteorologica_`, `ControladorRega_`, `Caudalimetro_`). As chaves criptográficas LoRaWAN nunca são publicadas.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^urn:ngsi-ld:Device:(Estacao_Meteorologica|ControladorRega|Caudalimetro)_[A-Za-z0-9_]+$",
+          "description": "Identificador `urn:ngsi-ld:Device:<Família>_<n>`, em que `<n>` é o identificador do equipamento na instância Werrigate do município."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["Device"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `Device`."
+        },
+        "category": {
+          "description": "Papel do equipamento: `sensor` (estação meteorológica), `actuator` + `irrSystem` (controlador de rega) ou `meter` (caudalímetro). Lista do vocabulário do Smart Data Model; uma lista de um só elemento pode ser publicada como texto simples.",
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": ["sensor", "actuator", "irrSystem", "meter"]
+            },
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "enum": ["sensor", "actuator", "irrSystem", "meter"]
+              }
+            }
+          ],
+          "x-ngsi": { "type": "Property" }
+        },
+        "controlledProperty": {
+          "description": "Grandezas observadas pelo equipamento, com o vocabulário do Smart Data Model. Estação: `temperature`, `humidity`, `atmosphericPressure`, `windSpeed`, `windDirection`, `precipitation`, `solarRadiation`. Caudalímetro: `waterConsumption`. Não é publicado nos controladores de rega. Uma lista de um só elemento pode ser publicada como texto simples.",
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": ["temperature", "humidity", "atmosphericPressure", "windSpeed", "windDirection", "precipitation", "solarRadiation", "waterConsumption"]
+            },
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "enum": ["temperature", "humidity", "atmosphericPressure", "windSpeed", "windDirection", "precipitation", "solarRadiation", "waterConsumption"]
+              }
+            }
+          ],
+          "x-ngsi": { "type": "Property" }
+        },
+        "deviceModelName": {
+          "type": "string",
+          "description": "Extensão. Modelo do equipamento indicado pela fonte: `CMBATT6`, `CMIRRI16`, `CMIRRI24` (controladores, com 6, 16 e 24 saídas), `CCBATT1` (caudalímetro) ou `meteo` (estação, quando a fonte não indica modelo).",
+          "x-ngsi": { "type": "Property" }
+        },
+        "loraWanDEVEUI": {
+          "type": "string",
+          "pattern": "^[0-9A-Fa-f]{16}$",
+          "description": "Extensão. Identificador de hardware LoRaWAN (DevEUI, 16 dígitos hexadecimais) dos controladores e caudalímetros. É um identificador público; as chaves de sessão e de aplicação não são publicadas.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "batteryLevel": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Nível de bateria do caudalímetro, em fração de 0 a 1 (a percentagem da fonte é dividida por 100).",
+          "x-ngsi": { "type": "Property" }
+        },
+        "batteryVoltage": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Extensão. Tensão da bateria da consola da estação meteorológica. A consola indica volts e não uma percentagem, por isso não usa `batteryLevel`.",
+          "x-ngsi": { "type": "Property", "units": "volts (VLT)" }
+        },
+        "dateLastValueReported": {
+          "type": ["string", "number"],
+          "description": "Último contacto da estação meteorológica com a plataforma de origem, tal como é devolvido pela fonte (campo `lastContact`), sem conversão. Permite detetar estações com leitura congelada.",
+          "x-ngsi": { "type": "Property" }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name",
+    "category",
+    "deviceModelName"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "urn:ngsi-ld:AgriParcel:JardimDoExemplo",
+  "type": "AgriParcel",
+  "name": "Jardim do Exemplo",
+  "addressLocality": "Santarém",
+  "addressCountry": "PT",
+  "hasDevice": [
+    "urn:ngsi-ld:Device:ControladorRega_12",
+    "urn:ngsi-ld:Device:ControladorRega_13",
+    "urn:ngsi-ld:Device:Caudalimetro_15"
+  ],
+  "location": {
+    "type": "Point",
+    "coordinates": [-8.686, 39.235]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "urn:ngsi-ld:CardConsumptionObserved:20260302-141699-999999-0-620-0",
+  "type": "CardConsumptionObserved",
+  "avgOperationsPerCard": 1.27,
+  "avgValuePerCard": 76.42,
+  "avgValuePerOperation": 60.0,
+  "cardOrigin": {
+    "country": {
+      "code": "620",
+      "name": "Portugal"
+    },
+    "townHall": {
+      "code": "0",
+      "name": "Todos os Concelhos do Cartão"
+    }
+  },
+  "cardQuantity": 950,
+  "dataProvider": "SIBS Analytics",
+  "dateObserved": "2026-03-02T00:00:00+00:00/2026-03-08T23:59:59+00:00",
+  "dayType": {
+    "code": "0",
+    "label": "Todos"
+  },
+  "frequency": "weekly",
+  "isAggregate": true,
+  "operationQuantity": 1210,
+  "operationType": "withdrawal",
+  "operationValue": 72600.0,
+  "organization": "CIMLT",
+  "refZone": {
+    "geographyType": "Freguesia",
+    "code": "141699",
+    "name": "Freguesia de Exemplo"
+  },
+  "sector": {
+    "level": "CSA 2",
+    "code": "999999",
+    "name": "Levantamentos"
+  },
+  "weekOfYear": "2026S10"
+}

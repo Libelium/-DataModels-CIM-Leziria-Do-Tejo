@@ -1,0 +1,46 @@
+{
+  "id": "urn:ngsi-ld:Device:AW-10990012",
+  "type": "Device",
+  "name": {
+    "type": "Property",
+    "value": "AW/10990012",
+    "observedAt": "2026-11-15T00:01:12Z"
+  },
+  "serialNumber": {
+    "type": "Property",
+    "value": "AW/10990012",
+    "observedAt": "2026-11-15T00:01:12Z"
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [-8.627, 39.205]
+    },
+    "observedAt": "2026-11-15T00:01:12Z"
+  },
+  "addressLocality": {
+    "type": "Property",
+    "value": "Almeirim",
+    "observedAt": "2026-11-15T00:01:12Z"
+  },
+  "provider": {
+    "type": "Property",
+    "value": "Águas do Ribatejo",
+    "observedAt": "2026-11-15T00:01:12Z"
+  },
+  "category": {
+    "type": "Property",
+    "value": "meter",
+    "observedAt": "2026-11-15T00:01:12Z"
+  },
+  "controlledProperty": {
+    "type": "Property",
+    "value": "waterConsumption",
+    "observedAt": "2026-11-15T00:01:12Z"
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.Device/master/context.jsonld",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

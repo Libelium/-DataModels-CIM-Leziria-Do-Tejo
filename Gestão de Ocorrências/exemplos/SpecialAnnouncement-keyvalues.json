@@ -1,0 +1,22 @@
+{
+  "id": "urn:ngsi-ld:SpecialAnnouncement:ANN-2026-0000001",
+  "type": "SpecialAnnouncement",
+  "name": {
+    "pt": "Corte de trânsito na Rua de Exemplo",
+    "en": "Road closure on Rua de Exemplo"
+  },
+  "text": {
+    "pt": "A Rua de Exemplo estará cortada ao trânsito no sábado, entre as 08:00 e as 18:00, devido a obras.",
+    "en": "Rua de Exemplo will be closed to traffic on Saturday, from 08:00 to 18:00, due to roadworks."
+  },
+  "category": "transito",
+  "datePosted": "2026-11-13T09:00:00Z",
+  "source": "backoffice",
+  "expires": "2026-11-15T23:59:59Z",
+  "address": "Rua de Exemplo, Santarém",
+  "announcementLocation": {
+    "type": "Point",
+    "coordinates": [-8.685, 39.236]
+  },
+  "hidden": false
+}

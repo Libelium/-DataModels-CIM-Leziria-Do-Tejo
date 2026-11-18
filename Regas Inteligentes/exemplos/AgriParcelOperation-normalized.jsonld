@@ -1,0 +1,75 @@
+{
+  "id": "urn:ngsi-ld:AgriParcelOperation:ControladorRega_12_prog_1",
+  "type": "AgriParcelOperation",
+  "operationType": {
+    "type": "Property",
+    "value": "water",
+    "observedAt": "2026-11-18T09:52:24Z"
+  },
+  "status": {
+    "type": "Property",
+    "value": "scheduled",
+    "observedAt": "2026-11-18T09:52:24Z"
+  },
+  "hasAgriParcel": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:AgriParcel:JardimDoExemplo",
+    "observedAt": "2026-11-18T09:52:24Z"
+  },
+  "operatedBy": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:Device:ControladorRega_12",
+    "observedAt": "2026-11-18T09:52:24Z"
+  },
+  "irrigationSchedule": {
+    "type": "Property",
+    "value": {
+      "programNumber": 1,
+      "enabled": true,
+      "running": false,
+      "allDays": false,
+      "daysOfWeek": {
+        "monday": true,
+        "tuesday": false,
+        "wednesday": true,
+        "thursday": false,
+        "friday": true,
+        "saturday": false,
+        "sunday": true
+      },
+      "startTimes": ["06:00", "21:30"],
+      "startTimesAreIntervals": false,
+      "durationUnit": "minutes",
+      "valveSequence": [
+        { "order": 1, "valve": 1, "duration": 15 },
+        { "order": 2, "valve": 2, "duration": 10 },
+        { "order": 3, "valve": 3, "duration": 12 }
+      ]
+    },
+    "observedAt": "2026-11-18T09:52:24Z"
+  },
+  "valveStatus": {
+    "type": "Property",
+    "value": [
+      { "valve": 1, "alias": "Output 1", "open": false },
+      { "valve": 2, "alias": "Output 2", "open": false },
+      { "valve": 3, "alias": "Output 3", "open": false },
+      { "valve": 4, "alias": "Output 4", "open": false },
+      { "valve": 5, "alias": "Output 5", "open": false },
+      { "valve": 6, "alias": "Output 6", "open": false }
+    ],
+    "observedAt": "2026-11-18T09:52:24Z"
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [-8.6862, 39.2351]
+    },
+    "observedAt": "2026-11-18T09:52:24Z"
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.AgriFood/master/context.jsonld",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}
