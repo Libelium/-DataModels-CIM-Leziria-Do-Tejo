@@ -1,0 +1,146 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Qualidade%20do%20Ar%20e%20Som/schema/NoiseLevelObserved.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo, previsto",
+  "title": "NoiseLevelObserved",
+  "description": "Observação do nível de ruído num ponto, agregada num intervalo de tempo. Perfil previsto para a PGU, baseado no Smart Data Model `dataModel.Environment/NoiseLevelObserved`; ainda sem integração ativa.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["NoiseLevelObserved"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `NoiseLevelObserved`."
+        },
+        "dateObservedFrom": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Início do período de observação (ISO 8601, UTC).",
+          "x-ngsi": {
+            "type": "Property",
+            "model": "https://schema.org/DateTime"
+          }
+        },
+        "dateObservedTo": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Fim do período de observação (ISO 8601, UTC).",
+          "x-ngsi": {
+            "type": "Property",
+            "model": "https://schema.org/DateTime"
+          }
+        },
+        "dateObserved": {
+          "type": "string",
+          "description": "Período de observação como intervalo ISO 8601 (`<início>/<fim>`).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "sonometerClass": {
+          "type": "string",
+          "enum": ["0", "1", "2"],
+          "description": "Classe do sonómetro (0, 1 ou 2) usado na observação.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "refDevice": {
+          "type": "string",
+          "format": "uri",
+          "description": "URN do dispositivo (`Device`) que fez a medição.",
+          "x-ngsi": {
+            "type": "Relationship"
+          }
+        },
+        "LAeq": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Nível sonoro contínuo equivalente, ponderado A, no período observado.",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "dB(A) (2N)"
+          }
+        },
+        "LAmax": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Nível sonoro máximo, ponderado A, no período observado.",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "dB(A) (2N)"
+          }
+        },
+        "LAS": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Nível sonoro ponderado A com constante de tempo lenta (slow).",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "dB(A) (2N)"
+          }
+        },
+        "LAeq_d": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Nível sonoro contínuo equivalente, ponderado A, do período diurno.",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "dB(A) (2N)"
+          }
+        },
+        "LAmin": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Extensão. Nível sonoro mínimo, ponderado A, no período observado.",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "dB(A) (2N)"
+          }
+        },
+        "LA10": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Extensão. Nível estatístico ponderado A excedido em 10 % do período.",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "dB(A) (2N)"
+          }
+        },
+        "LA50": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Extensão. Nível estatístico ponderado A excedido em 50 % do período.",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "dB(A) (2N)"
+          }
+        },
+        "LA90": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Extensão. Nível estatístico ponderado A excedido em 90 % do período (ruído de fundo).",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "dB(A) (2N)"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "dateObservedFrom",
+    "dateObservedTo",
+    "location"
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "id": "urn:ngsi-ld:AirQualityObserved:Estacao_QA_Exemplo_1",
+  "type": "AirQualityObserved",
+  "name": {
+    "type": "Property",
+    "value": "Estação de qualidade do ar de exemplo 1"
+  },
+  "dateObserved": {
+    "type": "Property",
+    "value": "2026-11-18T10:00:00Z"
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [-8.685, 39.236]
+    }
+  },
+  "address": {
+    "type": "Property",
+    "value": {
+      "addressCountry": "PT",
+      "addressLocality": "Santarém",
+      "streetAddress": "Rua de Exemplo, 1"
+    }
+  },
+  "areaServed": {
+    "type": "Property",
+    "value": "Santarém"
+  },
+  "typeofLocation": {
+    "type": "Property",
+    "value": "outdoor"
+  },
+  "refDevice": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:Device:Estacao_QA_Exemplo_1"
+  },
+  "o3": {
+    "type": "Property",
+    "value": 48.2,
+    "unitCode": "GQ",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "no2": {
+    "type": "Property",
+    "value": 21.7,
+    "unitCode": "GQ",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "no": {
+    "type": "Property",
+    "value": 6.3,
+    "unitCode": "GQ",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "so2": {
+    "type": "Property",
+    "value": 2.1,
+    "unitCode": "GQ",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "co": {
+    "type": "Property",
+    "value": 0.31,
+    "unitCode": "GP",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "co2": {
+    "type": "Property",
+    "value": 418,
+    "unitCode": "59",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "pm10": {
+    "type": "Property",
+    "value": 17.4,
+    "unitCode": "GQ",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "pm25": {
+    "type": "Property",
+    "value": 9.8,
+    "unitCode": "GQ",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "pm1": {
+    "type": "Property",
+    "value": 6.1,
+    "unitCode": "GQ",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "airQualityIndex": {
+    "type": "Property",
+    "value": 32,
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "airQualityLevel": {
+    "type": "Property",
+    "value": "good",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "temperature": {
+    "type": "Property",
+    "value": 16.4,
+    "unitCode": "CEL",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "relativeHumidity": {
+    "type": "Property",
+    "value": 0.72,
+    "unitCode": "C62",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "dataProvider": {
+    "type": "Property",
+    "value": "CIMLT"
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.Environment/master/context.jsonld",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

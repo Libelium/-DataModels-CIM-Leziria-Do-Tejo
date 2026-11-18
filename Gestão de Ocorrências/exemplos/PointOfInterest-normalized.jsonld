@@ -1,0 +1,45 @@
+{
+  "id": "urn:ngsi-ld:PointOfInterest:POI-2026-0000001",
+  "type": "PointOfInterest",
+  "name": {
+    "type": "Property",
+    "value": "Serviço Municipal de Águas (exemplo)"
+  },
+  "category": {
+    "type": "Property",
+    "value": "aguas"
+  },
+  "location": {
+    "type": "Property",
+    "value": {
+      "type": "Point",
+      "coordinates": [-8.688, 39.235]
+    }
+  },
+  "source": {
+    "type": "Property",
+    "value": "backoffice"
+  },
+  "address": {
+    "type": "Property",
+    "value": "Rua de Exemplo, 1, 2000-000 Santarém"
+  },
+  "telephone": {
+    "type": "Property",
+    "value": "+351 000 000 000"
+  },
+  "openingHours": {
+    "type": "Property",
+    "value": [
+      "Mo-Fr 09:00-17:00"
+    ]
+  },
+  "description": {
+    "type": "Property",
+    "value": "Atendimento ao público para contratos e avarias de abastecimento de água."
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.PointOfInterest/master/context.jsonld",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

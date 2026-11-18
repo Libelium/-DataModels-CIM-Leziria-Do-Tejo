@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Gest%C3%A3o%20de%20Ocorr%C3%AAncias/schema/PointOfInterest.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo, Smart Data Models",
+  "title": "PointOfInterest",
+  "description": "Serviço municipal de referência apresentado aos cidadãos (águas, resíduos, iluminação, espaços verdes, emergência, farmácias), com localização, contacto e horário. Baseado no Smart Data Model `PointOfInterest` (dataModel.PointOfInterest).",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["PointOfInterest"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `PointOfInterest`."
+        },
+        "name": {
+          "type": "string",
+          "description": "Nome do serviço.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "category": {
+          "type": "string",
+          "description": "Categoria do serviço: `aguas`, `residuos`, `iluminacao`, `verdes`, `emergencia` ou `pharmacies`.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "location": {
+          "type": "object",
+          "description": "Localização do serviço: GeoJSON `Point` com coordenadas WGS84 `[longitude, latitude]`, publicado como `Property`.",
+          "required": ["type", "coordinates"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["Point"]
+            },
+            "coordinates": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "source": {
+          "type": "string",
+          "description": "Canal de origem (por exemplo `backoffice`).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "address": {
+          "type": "string",
+          "description": "Morada legível do serviço.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "telephone": {
+          "type": "string",
+          "description": "Telefone de contacto do serviço.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "openingHours": {
+          "description": "Horário de funcionamento na sintaxe schema.org `openingHours`, em hora local: `24/7`, uma regra (`Mo-Fr 09:00-18:00`) ou uma lista de regras, uma por grupo de dias com o mesmo horário.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "description": {
+          "type": "string",
+          "description": "Descrição do serviço.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Chaves de armazenamento das imagens do serviço.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name",
+    "category",
+    "location",
+    "source"
+  ]
+}

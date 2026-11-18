@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Regas%20Inteligentes/schema/AgriParcel.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo, Smart Data Models dataModel.AgriFood",
+  "title": "AgriParcel",
+  "description": "Espaço verde municipal (jardim) com rega inteligente, que agrupa os controladores de rega e os caudalímetros instalados. Perfil do modelo AgriParcel dos Smart Data Models (dataModel.AgriFood), sem área, cultura nem categoria, que não se aplicam a jardins urbanos.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^urn:ngsi-ld:AgriParcel:[A-Za-z0-9]+$",
+          "description": "Identificador `urn:ngsi-ld:AgriParcel:<NomeDoJardim>`, com o nome do jardim em PascalCase, sem acentos nem espaços (por exemplo `JardimDaRepublica`)."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["AgriParcel"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `AgriParcel`."
+        },
+        "addressLocality": {
+          "type": "string",
+          "description": "Município onde se situa o jardim.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "addressCountry": {
+          "type": "string",
+          "enum": ["PT"],
+          "description": "País (código ISO 3166-1 alfa-2). Valor fixo `PT`.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "hasDevice": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^urn:ngsi-ld:Device:(ControladorRega|Caudalimetro)_[0-9]+$"
+          },
+          "description": "Controladores de rega e caudalímetros instalados no jardim (entidades `Device`).",
+          "x-ngsi": { "type": "Relationship" }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name",
+    "location",
+    "addressLocality",
+    "addressCountry",
+    "hasDevice"
+  ]
+}

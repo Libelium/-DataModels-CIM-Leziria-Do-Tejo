@@ -1,0 +1,228 @@
+{
+  "id": "urn:ngsi-ld:MunicipalTree:leziriaverde:30117",
+  "type": "MunicipalTree",
+  "name": {
+    "type": "Property",
+    "value": "Lódão-bastardo"
+  },
+  "treeId": {
+    "type": "Property",
+    "value": 30117
+  },
+  "category": {
+    "type": "Property",
+    "value": [
+      "MunicipalTree",
+      "tree",
+      "leziriaverde"
+    ]
+  },
+  "source": {
+    "type": "Property",
+    "value": "leziriaverde"
+  },
+  "sourceModule": {
+    "type": "Property",
+    "value": "leziriaverde-trees"
+  },
+  "dataProvider": {
+    "type": "Property",
+    "value": "cimlt"
+  },
+  "fetchedAt": {
+    "type": "Property",
+    "value": "2026-11-17T00:00:00Z"
+  },
+  "species": {
+    "type": "Property",
+    "value": "Celtis australis"
+  },
+  "scientificName": {
+    "type": "Property",
+    "value": "Celtis australis"
+  },
+  "commonName": {
+    "type": "Property",
+    "value": "Lódão-bastardo"
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        -8.527,
+        38.958
+      ]
+    }
+  },
+  "dbh": {
+    "type": "Property",
+    "value": 28.0
+  },
+  "trunkDiameter": {
+    "type": "Property",
+    "value": 28.0,
+    "unitCode": "CMT"
+  },
+  "crownDiameter": {
+    "type": "Property",
+    "value": 6.5
+  },
+  "canopyDiameter": {
+    "type": "Property",
+    "value": 6.5,
+    "unitCode": "MTR"
+  },
+  "age": {
+    "type": "Property",
+    "value": 15.0
+  },
+  "estimatedAge": {
+    "type": "Property",
+    "value": 15.0,
+    "unitCode": "ANN"
+  },
+  "addressLocality": {
+    "type": "Property",
+    "value": "Coruche"
+  },
+  "address": {
+    "type": "Property",
+    "value": {
+      "addressLocality": "Coruche",
+      "postalCode": "2100-100",
+      "addressCountry": "Portugal"
+    }
+  },
+  "image": {
+    "type": "Property",
+    "value": "https://imagens.exemplo.pt/arvores/30117-1.jpg"
+  },
+  "datePlanted": {
+    "type": "Property",
+    "value": "2011-03-15T00:00:00Z"
+  },
+  "dateRegistered": {
+    "type": "Property",
+    "value": "2026-05-11T23:00:00Z"
+  },
+  "dateCreated": {
+    "type": "Property",
+    "value": "2026-05-12T09:41:20Z"
+  },
+  "dateModified": {
+    "type": "Property",
+    "value": "2026-10-03T15:22:08Z"
+  },
+  "treeTypeLabel": {
+    "type": "Property",
+    "value": "Plantada"
+  },
+  "soilConditionLabel": {
+    "type": "Property",
+    "value": "Normal"
+  },
+  "treeStatusLabel": {
+    "type": "Property",
+    "value": "Viva"
+  },
+  "externalId": {
+    "type": "Property",
+    "value": 5120
+  },
+  "globalId": {
+    "type": "Property",
+    "value": "{0F3A9C2E-1B47-4D85-9E6A-7C2D4B8F1A03}"
+  },
+  "treeSpeciesId": {
+    "type": "Property",
+    "value": 27
+  },
+  "conservationStatus": {
+    "type": "Property",
+    "value": 0
+  },
+  "treeOrigin": {
+    "type": "Property",
+    "value": 0
+  },
+  "treeLocation": {
+    "type": "Property",
+    "value": 1
+  },
+  "treeType": {
+    "type": "Property",
+    "value": 0
+  },
+  "hasTreePit": {
+    "type": "Property",
+    "value": true
+  },
+  "pitShape": {
+    "type": "Property",
+    "value": "Quadrada"
+  },
+  "hasAutomaticIrrigation": {
+    "type": "Property",
+    "value": false
+  },
+  "riskLevel": {
+    "type": "Property",
+    "value": 0
+  },
+  "treeStatus": {
+    "type": "Property",
+    "value": "alive"
+  },
+  "municipalityId": {
+    "type": "Property",
+    "value": 6
+  },
+  "soilType": {
+    "type": "Property",
+    "value": "Calçada"
+  },
+  "parish": {
+    "type": "Property",
+    "value": "Coruche, Fajarda e Erra"
+  },
+  "soilCondition": {
+    "type": "Property",
+    "value": 0
+  },
+  "height": {
+    "type": "Property",
+    "value": 9.5
+  },
+  "trunkHeight": {
+    "type": "Property",
+    "value": 2.8
+  },
+  "baseDiameter": {
+    "type": "Property",
+    "value": 36
+  },
+  "pap": {
+    "type": "Property",
+    "value": 88
+  },
+  "isHealthy": {
+    "type": "Property",
+    "value": true
+  },
+  "ownerEntity": {
+    "type": "Property",
+    "value": 0
+  },
+  "maintenanceEntity": {
+    "type": "Property",
+    "value": 0
+  },
+  "status": {
+    "type": "Property",
+    "value": "1"
+  },
+  "@context": [
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.7.jsonld"
+  ]
+}

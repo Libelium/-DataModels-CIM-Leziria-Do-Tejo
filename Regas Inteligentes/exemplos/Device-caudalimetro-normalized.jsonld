@@ -1,0 +1,46 @@
+{
+  "id": "urn:ngsi-ld:Device:Caudalimetro_15",
+  "type": "Device",
+  "name": {
+    "type": "Property",
+    "value": "Jardim do Exemplo - Caudalímetro 1",
+    "observedAt": "2026-11-15T00:00:49Z"
+  },
+  "category": {
+    "type": "Property",
+    "value": "meter",
+    "observedAt": "2026-11-15T00:00:49Z"
+  },
+  "controlledProperty": {
+    "type": "Property",
+    "value": "waterConsumption",
+    "observedAt": "2026-11-15T00:00:49Z"
+  },
+  "deviceModelName": {
+    "type": "Property",
+    "value": "CCBATT1",
+    "observedAt": "2026-11-15T00:00:49Z"
+  },
+  "loraWanDEVEUI": {
+    "type": "Property",
+    "value": "30323736E5F60718",
+    "observedAt": "2026-11-15T00:00:49Z"
+  },
+  "batteryLevel": {
+    "type": "Property",
+    "value": 0.97,
+    "observedAt": "2026-11-18T09:57:14Z"
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [-8.6859, 39.2349]
+    },
+    "observedAt": "2026-11-15T00:00:49Z"
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.Device/master/context.jsonld",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

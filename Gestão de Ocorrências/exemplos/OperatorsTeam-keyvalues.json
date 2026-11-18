@@ -1,0 +1,9 @@
+{
+  "id": "urn:ngsi-ld:OperatorsTeam:TEAM-2026-000001",
+  "type": "OperatorsTeam",
+  "name": "Equipa de Iluminação Exemplo",
+  "members": [
+    "1002",
+    "1003"
+  ]
+}

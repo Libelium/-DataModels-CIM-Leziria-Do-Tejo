@@ -1,0 +1,73 @@
+{
+  "id": "urn:ngsi-ld:ThreePhaseAcMeasurement:PavilhaoMunicipal_BA9990001001L_16",
+  "type": "ThreePhaseAcMeasurement",
+  "dateObserved": {
+    "type": "Property",
+    "value": "2026-11-16T09:14:59Z",
+    "observedAt": "2026-11-16T09:20:07Z"
+  },
+  "serialNumber": {
+    "type": "Property",
+    "value": "BA9990001001L",
+    "observedAt": "2026-11-16T09:20:07Z"
+  },
+  "municipality": {
+    "type": "Property",
+    "value": "ALMEIRIM",
+    "observedAt": "2026-11-16T09:20:07Z"
+  },
+  "circuit": {
+    "type": "Property",
+    "value": "Geral Group3P-1",
+    "observedAt": "2026-11-16T09:20:07Z"
+  },
+  "totalActiveEnergyImport": {
+    "type": "Property",
+    "value": 24518.6,
+    "unitCode": "KWH",
+    "observedAt": "2026-11-16T09:20:07Z"
+  },
+  "totalActivePower": {
+    "type": "Property",
+    "value": 8215.37,
+    "unitCode": "WTT",
+    "observedAt": "2026-11-16T09:20:07Z"
+  },
+  "totalPowerFactor": {
+    "type": "Property",
+    "value": 0.912,
+    "observedAt": "2026-11-16T09:20:07Z"
+  },
+  "current": {
+    "type": "Property",
+    "value": {
+      "L1": 14.2,
+      "L2": 12.87,
+      "L3": 13.65
+    },
+    "unitCode": "AMP",
+    "observedAt": "2026-11-16T09:20:07Z"
+  },
+  "thdCurrent": {
+    "type": "Property",
+    "value": {
+      "L1": 18.4,
+      "L2": 21.7,
+      "L3": 19.9
+    },
+    "unitCode": "P1",
+    "observedAt": "2026-11-16T09:20:07Z"
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [-8.626, 39.209]
+    },
+    "observedAt": "2026-09-01T10:00:00Z"
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.Energy/master/context.jsonld",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

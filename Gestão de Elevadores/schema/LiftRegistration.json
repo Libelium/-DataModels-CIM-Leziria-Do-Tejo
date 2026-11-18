@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Gest%C3%A3o%20de%20Elevadores/schema/LiftRegistration.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo",
+  "title": "LiftRegistration",
+  "description": "Registo cadastral de uma instalação de elevação (ascensor, monta-cargas) no cadastro de equipamentos da CIMLT. Representa o processo administrativo do equipamento, não o dispositivo físico.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["LiftRegistration"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `LiftRegistration`."
+        },
+        "processNumber": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Número de processo oficial do equipamento no cadastro da CIMLT. Único e imutável; é também a parte final do identificador da entidade.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "liftType": {
+          "type": "string",
+          "description": "Tipo de equipamento, tal como é designado no cadastro (por exemplo `Ascensores` ou `Monta-cargas`).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "registrationStatus": {
+          "type": "object",
+          "description": "Estado do registo do equipamento, com o código e o rótulo devolvidos pelo cadastro. Códigos: 0 A Aguardar Aprovação, 1 Operacional, 60 Manutenção, 99 Selado, 100 Arquivado.",
+          "properties": {
+            "value": {
+              "type": "integer",
+              "enum": [0, 1, 60, 99, 100],
+              "description": "Código do estado."
+            },
+            "label": {
+              "type": "string",
+              "description": "Rótulo do estado em português."
+            }
+          },
+          "required": ["value", "label"],
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "geocodeStatus": {
+          "type": "string",
+          "enum": ["pending_confirmation", "confirmed"],
+          "description": "Grau de confiança das coordenadas: `pending_confirmation` (geocodificação automática, por confirmar) ou `confirmed` (confirmadas ou ajustadas manualmente). Só existe quando a entidade tem `location`.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "maintenanceCompany": {
+          "type": "object",
+          "description": "Empresa de manutenção de instalações de elevação (EMIE) atribuída ao equipamento. Omitido quando o cadastro não indica EMIE.",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Denominação da empresa."
+            },
+            "license": {
+              "type": "string",
+              "description": "Referência do registo da empresa como EMIE."
+            }
+          },
+          "required": ["name"],
+          "x-ngsi": {
+            "type": "Property"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name",
+    "processNumber",
+    "liftType",
+    "registrationStatus",
+    "address",
+    "dataProvider"
+  ]
+}

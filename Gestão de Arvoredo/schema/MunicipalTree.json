@@ -1,0 +1,320 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Gest%C3%A3o%20de%20Arvoredo/schema/MunicipalTree.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo",
+  "title": "MunicipalTree",
+  "description": "Árvore do inventário de arvoredo urbano municipal. Uma entidade por árvore inventariada, com a taxonomia, a dendrometria, a localização, o estado e a gestão do exemplar. Conserva os campos do inventário de origem e acrescenta atributos canónicos com unidade e etiquetas legíveis dos campos codificados.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["MunicipalTree"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `MunicipalTree`."
+        },
+        "treeId": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Identificador numérico da árvore no inventário de origem. É também a parte final do identificador da entidade.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "category": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Categorias da entidade. Valor fixo `[\"MunicipalTree\", \"tree\", \"leziriaverde\"]`.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "sourceModule": {
+          "type": "string",
+          "description": "Módulo da integração que publica a entidade. Valor fixo `leziriaverde-trees`.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "fetchedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Instante (ISO 8601 UTC) em que o registo foi lido na origem.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "species": {
+          "type": "string",
+          "description": "Espécie da árvore (atributo canónico): nome científico; na sua falta, o nome comum; em último recurso, o nome do catálogo de espécies da origem.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "scientificName": {
+          "type": "string",
+          "description": "Nome científico, tal como vem da origem. Pode valer `Outro` quando o nome real está em `scientificNameOther`.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "scientificNameOther": {
+          "type": "string",
+          "description": "Nome científico alternativo, preenchido quando `scientificName` é `Outro`.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "commonName": {
+          "type": "string",
+          "description": "Nome comum, tal como vem da origem. Pode valer `Outro` quando o nome real está em `commonNameOther`.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "commonNameOther": {
+          "type": "string",
+          "description": "Nome comum alternativo, preenchido quando `commonName` é `Outro`.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "family": {
+          "type": "string",
+          "description": "Família botânica.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "treeSpeciesId": {
+          "type": "integer",
+          "description": "Identificador da espécie no catálogo de espécies da origem.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "dbh": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Diâmetro à altura do peito (DAP), com o nome de origem e sem unidade declarada. O mesmo valor é publicado em `trunkDiameter`.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "trunkDiameter": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Diâmetro do tronco à altura do peito (DAP), em centímetros (atributo canónico de `dbh`).",
+          "x-ngsi": { "type": "Property", "units": "CMT" }
+        },
+        "crownDiameter": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Diâmetro da copa, com o nome de origem e sem unidade declarada. O mesmo valor é publicado em `canopyDiameter`.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "canopyDiameter": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Diâmetro da copa, em metros (atributo canónico de `crownDiameter`).",
+          "x-ngsi": { "type": "Property", "units": "MTR" }
+        },
+        "age": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Idade estimada, com o nome de origem e sem unidade declarada. O mesmo valor é publicado em `estimatedAge`.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "estimatedAge": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Idade estimada da árvore, em anos (atributo canónico de `age`).",
+          "x-ngsi": { "type": "Property", "units": "ANN" }
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Altura total da árvore. Unidade não declarada pela origem.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "trunkHeight": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Altura do fuste. Unidade não declarada pela origem.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "baseDiameter": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Diâmetro na base do tronco. Unidade não declarada pela origem.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "pap": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Perímetro à altura do peito (PAP). Unidade não declarada pela origem.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "addressLocality": {
+          "type": "string",
+          "description": "Município onde está a árvore. Repete `address.addressLocality` como atributo de primeiro nível.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "municipalityId": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Identificador do município no inventário de origem.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "parish": {
+          "type": "string",
+          "description": "Freguesia onde está a árvore.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "treeLocation": {
+          "type": "integer",
+          "description": "Tipologia do local da árvore (código do inventário de origem; sem etiqueta resolvida).",
+          "x-ngsi": { "type": "Property" }
+        },
+        "soilType": {
+          "type": "string",
+          "description": "Tipo de solo ou de revestimento em redor da árvore (texto livre da origem).",
+          "x-ngsi": { "type": "Property" }
+        },
+        "soilCondition": {
+          "type": "integer",
+          "description": "Condição do solo (código). A etiqueta legível é publicada em `soilConditionLabel`.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "soilConditionLabel": {
+          "type": "string",
+          "description": "Etiqueta legível de `soilCondition` (por exemplo `Normal`, `Deformado`). Só existe quando o dicionário da origem a resolve.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "hasTreePit": {
+          "type": "boolean",
+          "description": "Indica se a árvore tem caldeira.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "pitShape": {
+          "type": "string",
+          "description": "Forma da caldeira.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "treeType": {
+          "type": "integer",
+          "description": "Tipo de árvore (código). A etiqueta legível é publicada em `treeTypeLabel`.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "treeTypeLabel": {
+          "type": "string",
+          "description": "Etiqueta legível de `treeType` (por exemplo `Plantada`, `Espontânea`). Só existe quando o dicionário da origem a resolve.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "treeStatus": {
+          "type": "string",
+          "description": "Estado da árvore (código textual da origem, por exemplo `alive`). A etiqueta legível é publicada em `treeStatusLabel`.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "treeStatusLabel": {
+          "type": "string",
+          "description": "Etiqueta legível de `treeStatus` (por exemplo `Viva`). Só existe quando o dicionário da origem a resolve.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "treeOrigin": {
+          "type": "integer",
+          "description": "Origem da árvore (código do inventário de origem; sem etiqueta resolvida).",
+          "x-ngsi": { "type": "Property" }
+        },
+        "conservationStatus": {
+          "type": "integer",
+          "description": "Estado de conservação (código do inventário de origem; sem etiqueta resolvida).",
+          "x-ngsi": { "type": "Property" }
+        },
+        "isHealthy": {
+          "type": "boolean",
+          "description": "Indica se a árvore está sã.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "riskLevel": {
+          "type": "integer",
+          "description": "Nível de risco (código do inventário de origem; sem etiqueta resolvida).",
+          "x-ngsi": { "type": "Property" }
+        },
+        "riskNotes": {
+          "type": "string",
+          "description": "Notas sobre o risco da árvore.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "hasAutomaticIrrigation": {
+          "type": "boolean",
+          "description": "Indica se a árvore tem rega automática.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "ownerEntity": {
+          "type": "integer",
+          "description": "Entidade titular da árvore (identificador do inventário de origem).",
+          "x-ngsi": { "type": "Property" }
+        },
+        "ownerEntityInfo": {
+          "type": "string",
+          "description": "Informação complementar sobre a entidade titular.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "maintenanceEntity": {
+          "type": "integer",
+          "description": "Entidade responsável pela manutenção (identificador do inventário de origem).",
+          "x-ngsi": { "type": "Property" }
+        },
+        "maintenanceEntityInfo": {
+          "type": "string",
+          "description": "Informação complementar sobre a entidade de manutenção.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "observations": {
+          "type": "string",
+          "description": "Observações livres do registo.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "image": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL pública da fotografia principal da árvore no portal de origem.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "imageList": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" },
+          "description": "URL de todas as fotografias da árvore. Só existe quando há mais do que uma.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "datePlanted": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Data de plantação (ISO 8601 UTC).",
+          "x-ngsi": { "type": "Property" }
+        },
+        "dateRegistered": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Data de registo da árvore no inventário (ISO 8601 UTC).",
+          "x-ngsi": { "type": "Property" }
+        },
+        "externalId": {
+          "type": "integer",
+          "description": "Identificador externo do registo na origem (por exemplo, de um levantamento anterior).",
+          "x-ngsi": { "type": "Property" }
+        },
+        "globalId": {
+          "type": "string",
+          "description": "Identificador global (GUID) do registo na origem.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "status": {
+          "type": "string",
+          "description": "Estado do registo na origem (código textual, por exemplo `1`).",
+          "x-ngsi": { "type": "Property" }
+        },
+        "dynamicFields": {
+          "type": "array",
+          "description": "Campos livres definidos pelo fornecedor, tal como vêm da origem. Só existe quando não está vazio.",
+          "x-ngsi": { "type": "Property" }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name",
+    "treeId",
+    "category",
+    "source",
+    "sourceModule",
+    "dataProvider",
+    "fetchedAt"
+  ]
+}

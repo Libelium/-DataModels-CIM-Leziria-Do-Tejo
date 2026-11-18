@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Monitoriza%C3%A7%C3%A3o%20do%20Consumo%20de%20%C3%81gua/schema/WaterConsumptionObserved.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo",
+  "title": "WaterConsumptionObserved",
+  "description": "Observação diária de um contador de água com telecontagem da rede municipal: índice acumulado e consumo do período. Baseado no modelo WaterConsumptionObserved dos Smart Data Models (dataModel.WaterConsumption). Está ligada à entidade Device do mesmo contador por `refDevice`.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["WaterConsumptionObserved"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `WaterConsumptionObserved`."
+        },
+        "waterConsumption": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Índice acumulado do contador (volume total registado desde a instalação) no fim do dia de leitura, em metros cúbicos.",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "cubic meters"
+          }
+        },
+        "consumptionDelta": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Consumo do período, em metros cúbicos: diferença entre o índice do dia de leitura e o do dia civil imediatamente anterior. Omitido quando falta a leitura do dia anterior ou quando a diferença é negativa (substituição ou reinicialização do contador). Atributo de extensão.",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "cubic meters"
+          }
+        },
+        "refDevice": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^urn:ngsi-ld:Device:AW-[0-9]+$",
+          "description": "Identificador da entidade Device do contador que realiza a medição (`urn:ngsi-ld:Device:AW-<n>`).",
+          "x-ngsi": {
+            "type": "Relationship"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name",
+    "waterConsumption",
+    "refDevice",
+    "location"
+  ]
+}

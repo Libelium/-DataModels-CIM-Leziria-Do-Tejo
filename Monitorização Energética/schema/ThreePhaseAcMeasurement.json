@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Monitoriza%C3%A7%C3%A3o%20Energ%C3%A9tica/schema/ThreePhaseAcMeasurement.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo",
+  "title": "ThreePhaseAcMeasurement",
+  "description": "Medição elétrica de um circuito trifásico de corrente alternada de um edifício municipal, obtida por um analisador de rede ligado a um datalogger. Baseado no modelo ThreePhaseAcMeasurement dos Smart Data Models (dataModel.Energy). Define os atributos publicados atualmente; os restantes atributos do modelo de referência mantêm a sua definição normativa.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["ThreePhaseAcMeasurement"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `ThreePhaseAcMeasurement`."
+        },
+        "totalActiveEnergyImport": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Energia ativa importada (consumida) desde o início da contagem, somando as três fases. Contador totalizador crescente.",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "kilowatt hour"
+          }
+        },
+        "totalActivePower": {
+          "type": "number",
+          "description": "Potência ativa instantânea, somando as três fases, em watts. O equipamento entrega-a em kW e a integração converte-a para W.",
+          "x-ngsi": {
+            "type": "Property",
+            "units": "watt"
+          }
+        },
+        "totalPowerFactor": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1,
+          "description": "Fator de potência do conjunto das fases. Adimensional, de -1 a +1.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "current": {
+          "type": "object",
+          "description": "Corrente elétrica por fase (`L1`, `L2`, `L3`) e, quando o equipamento a entrega, no neutro (`N`), em amperes.",
+          "properties": {
+            "L1": { "type": "number", "description": "Corrente na fase 1." },
+            "L2": { "type": "number", "description": "Corrente na fase 2." },
+            "L3": { "type": "number", "description": "Corrente na fase 3." },
+            "N": { "type": "number", "description": "Corrente no neutro." }
+          },
+          "x-ngsi": {
+            "type": "Property",
+            "units": "ampere"
+          }
+        },
+        "thdCurrent": {
+          "type": "object",
+          "description": "Distorção harmónica total da corrente por fase, em percentagem (0 a 100), tal como é entregue pelo equipamento. O modelo de referência usa a escala de 0 a 1.",
+          "properties": {
+            "L1": { "type": "number", "minimum": 0, "maximum": 100, "description": "THD de corrente na fase 1." },
+            "L2": { "type": "number", "minimum": 0, "maximum": 100, "description": "THD de corrente na fase 2." },
+            "L3": { "type": "number", "minimum": 0, "maximum": 100, "description": "THD de corrente na fase 3." }
+          },
+          "x-ngsi": {
+            "type": "Property",
+            "units": "percent"
+          }
+        },
+        "dateObserved": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Instante da leitura indicado pelo equipamento de medição (ISO 8601, UTC).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "serialNumber": {
+          "type": "string",
+          "description": "Número de série do datalogger que recolhe as leituras. Atributo de extensão.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "municipality": {
+          "type": "string",
+          "description": "Município a que pertence o edifício, tal como está configurado no datalogger. Atributo de extensão.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "circuit": {
+          "type": "string",
+          "description": "Nome do circuito ou quadro elétrico medido, tal como está configurado no datalogger (por exemplo `Geral Group3P-1`). Atributo de extensão.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "dateObserved",
+    "serialNumber"
+  ]
+}

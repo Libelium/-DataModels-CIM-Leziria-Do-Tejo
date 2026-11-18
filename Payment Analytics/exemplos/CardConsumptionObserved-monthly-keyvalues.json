@@ -1,0 +1,40 @@
+{
+  "id": "urn:ngsi-ld:CardConsumptionObserved:202609-141699-407-1-620-1106",
+  "type": "CardConsumptionObserved",
+  "avgOperationsPerCard": 1.43,
+  "avgValuePerCard": 25.73,
+  "avgValuePerOperation": 18.0,
+  "cardOrigin": {
+    "country": {
+      "code": "620",
+      "name": "Portugal"
+    },
+    "townHall": {
+      "code": "1106",
+      "name": "Lisboa"
+    }
+  },
+  "cardQuantity": 184,
+  "dataProvider": "SIBS Analytics",
+  "dateObserved": "2026-09-01T00:00:00+01:00/2026-09-30T23:59:59+01:00",
+  "dayType": {
+    "code": "1",
+    "label": "Dia de Semana"
+  },
+  "frequency": "monthly",
+  "isAggregate": false,
+  "operationQuantity": 263,
+  "operationType": "purchase",
+  "operationValue": 4734.0,
+  "organization": "CIMLT",
+  "refZone": {
+    "geographyType": "Freguesia",
+    "code": "141699",
+    "name": "Freguesia de Exemplo"
+  },
+  "sector": {
+    "level": "CSA 2",
+    "code": "407",
+    "name": "Restauração"
+  }
+}

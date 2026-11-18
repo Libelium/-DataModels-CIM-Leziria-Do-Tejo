@@ -1,0 +1,97 @@
+{
+  "id": "urn:ngsi-ld:NoiseLevelObserved:Sonometro_Exemplo_1",
+  "type": "NoiseLevelObserved",
+  "name": {
+    "type": "Property",
+    "value": "Sonómetro de exemplo 1"
+  },
+  "dateObservedFrom": {
+    "type": "Property",
+    "value": "2026-11-18T09:00:00Z"
+  },
+  "dateObservedTo": {
+    "type": "Property",
+    "value": "2026-11-18T10:00:00Z"
+  },
+  "dateObserved": {
+    "type": "Property",
+    "value": "2026-11-18T09:00:00Z/2026-11-18T10:00:00Z"
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [-8.684, 39.234]
+    }
+  },
+  "address": {
+    "type": "Property",
+    "value": {
+      "addressCountry": "PT",
+      "addressLocality": "Santarém",
+      "streetAddress": "Largo de Exemplo"
+    }
+  },
+  "areaServed": {
+    "type": "Property",
+    "value": "Santarém"
+  },
+  "sonometerClass": {
+    "type": "Property",
+    "value": "1"
+  },
+  "refDevice": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:Device:Sonometro_Exemplo_1"
+  },
+  "LAeq": {
+    "type": "Property",
+    "value": 58.4,
+    "unitCode": "2N",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "LAmax": {
+    "type": "Property",
+    "value": 79.2,
+    "unitCode": "2N",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "LAmin": {
+    "type": "Property",
+    "value": 41.6,
+    "unitCode": "2N",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "LAS": {
+    "type": "Property",
+    "value": 60.1,
+    "unitCode": "2N",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "LA10": {
+    "type": "Property",
+    "value": 62.3,
+    "unitCode": "2N",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "LA50": {
+    "type": "Property",
+    "value": 55.7,
+    "unitCode": "2N",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "LA90": {
+    "type": "Property",
+    "value": 46.8,
+    "unitCode": "2N",
+    "observedAt": "2026-11-18T10:00:00Z"
+  },
+  "dataProvider": {
+    "type": "Property",
+    "value": "CIMLT"
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.Environment/master/context.jsonld",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "urn:ngsi-ld:ThreePhaseAcMeasurement:PavilhaoMunicipal_BA9990001001L_16",
+  "type": "ThreePhaseAcMeasurement",
+  "dateObserved": "2026-11-16T09:14:59Z",
+  "serialNumber": "BA9990001001L",
+  "municipality": "ALMEIRIM",
+  "circuit": "Geral Group3P-1",
+  "totalActiveEnergyImport": 24518.6,
+  "totalActivePower": 8215.37,
+  "totalPowerFactor": 0.912,
+  "current": {
+    "L1": 14.2,
+    "L2": 12.87,
+    "L3": 13.65
+  },
+  "thdCurrent": {
+    "L1": 18.4,
+    "L2": 21.7,
+    "L3": 19.9
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [-8.626, 39.209]
+  }
+}

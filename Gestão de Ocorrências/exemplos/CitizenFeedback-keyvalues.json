@@ -1,0 +1,12 @@
+{
+  "id": "urn:ngsi-ld:CitizenFeedback:FB-2026-0000001",
+  "type": "CitizenFeedback",
+  "topic": "suggestion",
+  "message": "Seria útil receber alertas de mau tempo na aplicação.",
+  "anonymous": false,
+  "submittedAt": "2026-11-12T17:45:00Z",
+  "channel": "citizen-app",
+  "status": "new",
+  "submitterName": "Cidadão Exemplo",
+  "contactEmail": "exemplo@exemplo.pt"
+}

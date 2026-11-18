@@ -1,0 +1,173 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Regas%20Inteligentes/schema/AgriParcelOperation.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo, Smart Data Models dataModel.AgriFood",
+  "title": "AgriParcelOperation",
+  "description": "Programa de rega ativo de um controlador de rega: programação (dias, horas de arranque, sequência de válvulas e durações) e estado em tempo real das válvulas. Uma entidade por programa habilitado. Perfil do modelo AgriParcelOperation dos Smart Data Models (dataModel.AgriFood), estendido com `operatedBy`, `irrigationSchedule` e `valveStatus`.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^urn:ngsi-ld:AgriParcelOperation:ControladorRega_[0-9]+_prog_[0-9]+$",
+          "description": "Identificador `urn:ngsi-ld:AgriParcelOperation:ControladorRega_<n>_prog_<m>`: controlador `<n>`, programa `<m>`."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["AgriParcelOperation"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `AgriParcelOperation`."
+        },
+        "operationType": {
+          "type": "string",
+          "enum": ["water"],
+          "description": "Tipo de operação, do vocabulário do Smart Data Model. Valor fixo `water` (rega).",
+          "x-ngsi": { "type": "Property" }
+        },
+        "status": {
+          "type": "string",
+          "enum": ["scheduled", "ongoing"],
+          "description": "Estado do programa, do vocabulário do Smart Data Model: `ongoing` quando o programa está a regar, `scheduled` nos restantes casos.",
+          "x-ngsi": { "type": "Property" }
+        },
+        "hasAgriParcel": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^urn:ngsi-ld:AgriParcel:[A-Za-z0-9]+$",
+          "description": "Jardim (`AgriParcel`) onde o programa rega. Derivado do nome do controlador (`<Jardim> - Caixa <n>`); omitido quando não é possível derivá-lo.",
+          "x-ngsi": { "type": "Relationship" }
+        },
+        "operatedBy": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^urn:ngsi-ld:Device:ControladorRega_[0-9]+$",
+          "description": "Extensão. Controlador de rega (`Device`) que executa o programa.",
+          "x-ngsi": { "type": "Relationship" }
+        },
+        "irrigationSchedule": {
+          "type": "object",
+          "description": "Extensão. Programação do programa de rega.",
+          "properties": {
+            "programNumber": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Número do programa no controlador."
+            },
+            "enabled": {
+              "type": "boolean",
+              "description": "Programa habilitado. Só são publicados programas habilitados."
+            },
+            "running": {
+              "type": "boolean",
+              "description": "Programa a regar neste momento."
+            },
+            "allDays": {
+              "type": "boolean",
+              "description": "Programa ativo todos os dias, independentemente de `daysOfWeek`."
+            },
+            "daysOfWeek": {
+              "type": "object",
+              "description": "Dias da semana em que o programa está ativo.",
+              "properties": {
+                "monday": { "type": "boolean" },
+                "tuesday": { "type": "boolean" },
+                "wednesday": { "type": "boolean" },
+                "thursday": { "type": "boolean" },
+                "friday": { "type": "boolean" },
+                "saturday": { "type": "boolean" },
+                "sunday": { "type": "boolean" }
+              },
+              "additionalProperties": false
+            },
+            "startTimes": {
+              "type": "array",
+              "description": "Horas de arranque (`HH:MM`, hora local). As posições vazias do controlador são omitidas.",
+              "items": {
+                "type": "string",
+                "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+              }
+            },
+            "startTimesAreIntervals": {
+              "type": "boolean",
+              "description": "Quando é `true`, `startTimes` são intervalos de repetição e não horas de arranque."
+            },
+            "durationUnit": {
+              "type": "string",
+              "enum": ["minutes"],
+              "description": "Unidade de `valveSequence[].duration`. Valor fixo `minutes`."
+            },
+            "valveSequence": {
+              "type": "array",
+              "description": "Sequência de rega: válvulas por ordem de abertura e respetiva duração. Só inclui as posições com válvula atribuída.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "order": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Posição na sequência."
+                  },
+                  "valve": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Número da saída (válvula) do controlador."
+                  },
+                  "duration": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Tempo de rega da válvula, na unidade de `durationUnit`."
+                  }
+                },
+                "required": ["order", "valve", "duration"]
+              }
+            }
+          },
+          "required": ["programNumber", "enabled", "running", "allDays", "daysOfWeek", "startTimes", "startTimesAreIntervals", "durationUnit", "valveSequence"],
+          "x-ngsi": { "type": "Property" }
+        },
+        "valveStatus": {
+          "type": "array",
+          "description": "Extensão. Estado em tempo real das saídas (válvulas) físicas do controlador: 6, 16 ou 24 conforme o modelo.",
+          "minItems": 1,
+          "maxItems": 24,
+          "items": {
+            "type": "object",
+            "properties": {
+              "valve": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "Número da saída."
+              },
+              "alias": {
+                "type": "string",
+                "description": "Nome da saída configurado no controlador (por omissão `Output <n>`)."
+              },
+              "open": {
+                "type": "boolean",
+                "description": "Válvula aberta (a regar)."
+              }
+            },
+            "required": ["valve", "alias", "open"]
+          },
+          "x-ngsi": { "type": "Property" }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "operationType",
+    "status",
+    "operatedBy",
+    "irrigationSchedule",
+    "valveStatus"
+  ]
+}

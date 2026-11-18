@@ -1,0 +1,66 @@
+{
+  "id": "urn:ngsi-ld:LiftRegistration:11039999",
+  "type": "LiftRegistration",
+  "name": {
+    "type": "Property",
+    "value": "Ascensores — Rua de Exemplo, 12",
+    "observedAt": "2026-11-15T04:09:53Z"
+  },
+  "processNumber": {
+    "type": "Property",
+    "value": 11039999,
+    "observedAt": "2026-11-15T04:09:53Z"
+  },
+  "liftType": {
+    "type": "Property",
+    "value": "Ascensores",
+    "observedAt": "2026-11-15T04:09:53Z"
+  },
+  "registrationStatus": {
+    "type": "Property",
+    "value": {
+      "value": 1,
+      "label": "Operacional"
+    },
+    "observedAt": "2026-11-15T04:09:53Z"
+  },
+  "address": {
+    "type": "Property",
+    "value": {
+      "addressCountry": "PT",
+      "addressLocality": "Azambuja",
+      "streetAddress": "Rua de Exemplo, 12",
+      "postalCode": "2050-000"
+    },
+    "observedAt": "2026-11-15T04:09:53Z"
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [-8.866, 39.07]
+    },
+    "observedAt": "2026-11-15T04:09:53Z"
+  },
+  "geocodeStatus": {
+    "type": "Property",
+    "value": "pending_confirmation",
+    "observedAt": "2026-11-15T04:09:53Z"
+  },
+  "maintenanceCompany": {
+    "type": "Property",
+    "value": {
+      "name": "Empresa de Manutenção Exemplo, Lda.",
+      "license": "EC 2.2/00"
+    },
+    "observedAt": "2026-11-15T04:09:53Z"
+  },
+  "dataProvider": {
+    "type": "Property",
+    "value": "CIMLT",
+    "observedAt": "2026-11-15T04:09:53Z"
+  },
+  "@context": [
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

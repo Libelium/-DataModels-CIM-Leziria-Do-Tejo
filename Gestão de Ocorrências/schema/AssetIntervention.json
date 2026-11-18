@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Gest%C3%A3o%20de%20Ocorr%C3%AAncias/schema/AssetIntervention.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo",
+  "title": "AssetIntervention",
+  "description": "Intervenção (unidade de trabalho) que agrupa uma ou mais ocorrências (`Incident`) e é atribuída a um operador e/ou a uma equipa. O seu estado é propagado a todas as ocorrências que agrupa.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["AssetIntervention"],
+          "description": "Tipo de entidade NGSI-LD. Valor fixo `AssetIntervention`."
+        },
+        "name": {
+          "type": "string",
+          "description": "Nome da intervenção.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": ["open", "inProgress", "assigned", "resolved", "closed", "cancelled"],
+          "description": "Estado do ciclo de vida da intervenção, propagado às ocorrências agrupadas. É criada como `open`.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "operatorId": {
+          "type": "string",
+          "description": "Identificador interno do operador que criou a intervenção (definido pela plataforma).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "refersTo": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^urn:ngsi-ld:Incident:"
+          },
+          "description": "URN das ocorrências (`Incident`) agrupadas na intervenção. Cada ocorrência pertence no máximo a uma intervenção.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "location": {
+          "type": "object",
+          "description": "Centroide das localizações das ocorrências agrupadas: GeoJSON `Point` com coordenadas WGS84 `[longitude, latitude]`, calculado pela plataforma. Publicado como `Property`.",
+          "required": ["type", "coordinates"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["Point"]
+            },
+            "coordinates": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "category": {
+          "type": "string",
+          "description": "Categoria da intervenção (opcional, normalmente herdada das ocorrências).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "assignedTo": {
+          "type": "string",
+          "description": "Identificador interno do operador atribuído.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "assignedToName": {
+          "type": "string",
+          "description": "Nome de apresentação do operador atribuído.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "assignedTeam": {
+          "type": "string",
+          "description": "Identificador da equipa (`OperatorsTeam`) atribuída.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "assignedTeamName": {
+          "type": "string",
+          "description": "Nome de apresentação da equipa atribuída.",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "assignmentType": {
+          "type": "string",
+          "enum": ["individual", "team"],
+          "description": "Tipo de atribuição: a um operador (`individual`) ou a uma equipa (`team`).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        },
+        "assignedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Data e hora da atribuição (ISO 8601, UTC).",
+          "x-ngsi": {
+            "type": "Property"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name",
+    "status",
+    "operatorId",
+    "refersTo"
+  ]
+}

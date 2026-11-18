@@ -1,0 +1,14 @@
+{
+  "id": "urn:ngsi-ld:Device:AW-10990012",
+  "type": "Device",
+  "name": "AW/10990012",
+  "serialNumber": "AW/10990012",
+  "location": {
+    "type": "Point",
+    "coordinates": [-8.627, 39.205]
+  },
+  "addressLocality": "Almeirim",
+  "provider": "Águas do Ribatejo",
+  "category": "meter",
+  "controlledProperty": "waterConsumption"
+}

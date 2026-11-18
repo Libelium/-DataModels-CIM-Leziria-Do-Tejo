@@ -1,0 +1,73 @@
+{
+  "id": "urn:ngsi-ld:WaterConsumptionObserved:Caudalimetro_15_flow",
+  "type": "WaterConsumptionObserved",
+  "refDevice": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:Device:Caudalimetro_15",
+    "observedAt": "2026-11-18T09:57:14Z"
+  },
+  "waterConsumption": {
+    "type": "Property",
+    "value": 1284.5,
+    "unitCode": "MTQ",
+    "observedAt": "2026-11-18T09:57:14Z"
+  },
+  "alarmInProgress": {
+    "type": "Property",
+    "value": 0,
+    "observedAt": "2026-11-18T09:57:14Z"
+  },
+  "flow": {
+    "type": "Property",
+    "value": 0,
+    "observedAt": "2026-11-18T09:57:14Z"
+  },
+  "totalVolumeWithoutOffset": {
+    "type": "Property",
+    "value": 1284.5,
+    "unitCode": "MTQ",
+    "observedAt": "2026-11-18T09:57:14Z"
+  },
+  "maxFlowAlarm": {
+    "type": "Property",
+    "value": false,
+    "observedAt": "2026-11-18T09:57:14Z"
+  },
+  "maxFlowWarning": {
+    "type": "Property",
+    "value": false,
+    "observedAt": "2026-11-18T09:57:14Z"
+  },
+  "maxDayVolumeAlarm": {
+    "type": "Property",
+    "value": false,
+    "observedAt": "2026-11-18T09:57:14Z"
+  },
+  "maxDayVolumeWarning": {
+    "type": "Property",
+    "value": false,
+    "observedAt": "2026-11-18T09:57:14Z"
+  },
+  "minDayVolumeAlarm": {
+    "type": "Property",
+    "value": false,
+    "observedAt": "2026-11-18T09:57:14Z"
+  },
+  "minDayVolumeWarning": {
+    "type": "Property",
+    "value": false,
+    "observedAt": "2026-11-18T09:57:14Z"
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [-8.6859, 39.2349]
+    },
+    "observedAt": "2026-11-18T09:57:14Z"
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.WaterConsumption/master/context.jsonld",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

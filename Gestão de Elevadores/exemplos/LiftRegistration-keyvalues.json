@@ -1,0 +1,27 @@
+{
+  "id": "urn:ngsi-ld:LiftRegistration:11039999",
+  "type": "LiftRegistration",
+  "name": "Ascensores — Rua de Exemplo, 12",
+  "processNumber": 11039999,
+  "liftType": "Ascensores",
+  "registrationStatus": {
+    "value": 1,
+    "label": "Operacional"
+  },
+  "address": {
+    "addressCountry": "PT",
+    "addressLocality": "Azambuja",
+    "streetAddress": "Rua de Exemplo, 12",
+    "postalCode": "2050-000"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [-8.866, 39.07]
+  },
+  "geocodeStatus": "pending_confirmation",
+  "maintenanceCompany": {
+    "name": "Empresa de Manutenção Exemplo, Lda.",
+    "license": "EC 2.2/00"
+  },
+  "dataProvider": "CIMLT"
+}

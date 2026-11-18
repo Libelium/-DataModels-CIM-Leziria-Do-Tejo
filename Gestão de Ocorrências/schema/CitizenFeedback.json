@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://raw.githubusercontent.com/Libelium/-DataModels-CIM-Leziria-Do-Tejo/main/Gest%C3%A3o%20de%20Ocorr%C3%AAncias/schema/CitizenFeedback.json",
+  "modelTags": "CIMLT, PGU Lezíria do Tejo",
+  "title": "CitizenFeedback",
+  "description": "Sugestão ou comentário enviado por um cidadão através da PGU. O mesmo modelo é usado para as denúncias de conteúdo enviadas para moderação, que se distinguem pelo valor de `topic`.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^urn:ngsi-ld:CitizenFeedback:",
+      "description": "Identificador da entidade: `urn:ngsi-ld:CitizenFeedback:FB-<ano>-<número>`."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["CitizenFeedback"],
+      "description": "Tipo de entidade NGSI-LD. Valor fixo `CitizenFeedback`."
+    },
+    "topic": {
+      "type": "string",
+      "description": "Tema do envio: `suggestion`, `praise`, `complaint` ou `app_issue` para o feedback, `content_report` para as denúncias de conteúdo.",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "message": {
+      "type": "string",
+      "description": "Texto do feedback ou da denúncia.",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "anonymous": {
+      "type": "boolean",
+      "description": "`true` se o envio é anónimo (é o caso, salvo se o cidadão indicar o seu nome).",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "submittedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Data e hora do envio (ISO 8601, UTC).",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "channel": {
+      "type": "string",
+      "description": "Canal de origem (por exemplo `citizen-app`).",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "status": {
+      "type": "string",
+      "description": "Estado de triagem pelos operadores. É criado como `new`.",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "submitterName": {
+      "type": "string",
+      "description": "Nome do remetente, apenas se se identificar.",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    },
+    "contactEmail": {
+      "type": "string",
+      "format": "email",
+      "description": "Endereço de correio eletrónico para resposta, indicado voluntariamente e apenas em envios não anónimos. Pode ser diferente do da conta do cidadão.",
+      "x-ngsi": {
+        "type": "Property"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "topic",
+    "message",
+    "anonymous",
+    "submittedAt",
+    "channel",
+    "status"
+  ]
+}

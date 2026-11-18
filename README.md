@@ -17,13 +17,14 @@ A PGU integra, para a CIMLT e para os seus 11 municípios (Almeirim, Alpiarça, 
 
 | Área temática | Modelo(s) de dados | Referência |
 |---|---|---|
-| Gestão de Arvoredo |  |  |
-| Gestão de Elevadores |  |  |
-| Monitorização do Consumo de Água |  |  |
-| Monitorização Energética |  |  |
-| Payment Analytics |  |  |
-| Qualidade do Ar e Som |  |  |
-| Regas Inteligentes |  |  |
+| [Gestão de Arvoredo](Gest%C3%A3o%20de%20Arvoredo/) | `MunicipalTree` | Modelo próprio iris360 (o mais próximo nos Smart Data Models é `FloweringTree`, que não cobre o inventário) |
+| [Gestão de Elevadores](Gest%C3%A3o%20de%20Elevadores/) | `LiftRegistration` | Modelo próprio (proposta), segundo o padrão `*Registration` do CNMD |
+| [Gestão de Ocorrências](Gest%C3%A3o%20de%20Ocorr%C3%AAncias/) | `Incident`, `AssetIntervention`, `OperatorsTeam`, `SpecialAnnouncement`, `PointOfInterest`, `CitizenFeedback`, `SurveyResponse` | Modelos próprios; Smart Data Models `PointOfInterest` (adaptado); schema.org `SpecialAnnouncement` |
+| [Monitorização do Consumo de Água](Monitoriza%C3%A7%C3%A3o%20do%20Consumo%20de%20%C3%81gua/) | `Device`, `WaterConsumptionObserved` | Smart Data Models `dataModel.Device`, `dataModel.WaterConsumption` |
+| [Monitorização Energética](Monitoriza%C3%A7%C3%A3o%20Energ%C3%A9tica/) | `ThreePhaseAcMeasurement` | Smart Data Models `dataModel.Energy` |
+| [Payment Analytics](Payment%20Analytics/) | `CardConsumptionObserved` | Modelo próprio (proposta), segundo o padrão `*Observed` dos Smart Data Models |
+| [Qualidade do Ar e Som](Qualidade%20do%20Ar%20e%20Som/) | `AirQualityObserved`, `NoiseLevelObserved` | Smart Data Models `dataModel.Environment` (modelo previsto; ainda sem integração ativa) |
+| [Regas Inteligentes](Regas%20Inteligentes/) | `WeatherObserved`, `Device`, `AgriParcel`, `AgriParcelOperation`, `WaterConsumptionObserved` | Smart Data Models `dataModel.Weather`, `dataModel.Device`, `dataModel.AgriFood`, `dataModel.WaterConsumption` |
 
 > Sempre que existe um modelo equivalente no CNMD, foi esse o modelo adotado. Nos restantes casos foi utilizado o modelo correspondente dos Smart Data Models ou, na sua ausência, um modelo próprio da plataforma iris360. Eventuais atributos adicionais ou adaptações estão identificados no `README.md` de cada área temática.
 
@@ -46,6 +47,7 @@ DataModels-CIM-Leziria-Do-Tejo/
 │   ├── README.md
 │   ├── exemplos/
 │   └── schema/
+├── Gestão de Ocorrências/
 ├── Monitorização do Consumo de Água/
 ├── Monitorização Energética/
 ├── Payment Analytics/

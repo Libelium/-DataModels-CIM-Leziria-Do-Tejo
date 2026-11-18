@@ -1,0 +1,186 @@
+{
+  "id": "urn:ngsi-ld:WeatherObserved:Estacao_Meteorologica_cartaxo_2_WTO",
+  "type": "WeatherObserved",
+  "temperature": {
+    "type": "Property",
+    "value": 14.6,
+    "unitCode": "CEL",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "relativeHumidity": {
+    "type": "Property",
+    "value": 82,
+    "unitCode": "P1",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "dewPoint": {
+    "type": "Property",
+    "value": 11.6,
+    "unitCode": "CEL",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "feelsLikeTemperature": {
+    "type": "Property",
+    "value": 14.6,
+    "unitCode": "CEL",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "atmosphericPressure": {
+    "type": "Property",
+    "value": 1019.4,
+    "unitCode": "A97",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "pressureTendency": {
+    "type": "Property",
+    "value": "Steady",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "windSpeed": {
+    "type": "Property",
+    "value": 6.4,
+    "unitCode": "KMH",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "windDirection": {
+    "type": "Property",
+    "value": 292,
+    "unitCode": "DD",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "gustSpeed": {
+    "type": "Property",
+    "value": 14.5,
+    "unitCode": "KMH",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "precipitation": {
+    "type": "Property",
+    "value": 0,
+    "unitCode": "MMT",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "solarRadiation": {
+    "type": "Property",
+    "value": 215,
+    "unitCode": "D54",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "uVIndexMax": {
+    "type": "Property",
+    "value": 1,
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "windChillTemperature": {
+    "type": "Property",
+    "value": 14.2,
+    "unitCode": "CEL",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "thswIndex": {
+    "type": "Property",
+    "value": 15.8,
+    "unitCode": "CEL",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "windSpeedAverage2m": {
+    "type": "Property",
+    "value": 5.6,
+    "unitCode": "KMH",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "windSpeedAverage10m": {
+    "type": "Property",
+    "value": 6.1,
+    "unitCode": "KMH",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "windDirection10m": {
+    "type": "Property",
+    "value": 270,
+    "unitCode": "DD",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "precipitationRate": {
+    "type": "Property",
+    "value": 0,
+    "unitCode": "H67",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "rainAccumulatedLast15m": {
+    "type": "Property",
+    "value": 0,
+    "unitCode": "MMT",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "rainAccumulatedLast24h": {
+    "type": "Property",
+    "value": 1.2,
+    "unitCode": "MMT",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "rainAccumulatedDay": {
+    "type": "Property",
+    "value": 0,
+    "unitCode": "MMT",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "rainAccumulatedMonth": {
+    "type": "Property",
+    "value": 38.4,
+    "unitCode": "MMT",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "rainAccumulatedYear": {
+    "type": "Property",
+    "value": 412.6,
+    "unitCode": "MMT",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "rainStorm": {
+    "type": "Property",
+    "value": 0,
+    "unitCode": "MMT",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "evapotranspirationDay": {
+    "type": "Property",
+    "value": 0.6,
+    "unitCode": "MMT",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "evapotranspirationMonth": {
+    "type": "Property",
+    "value": 21.3,
+    "unitCode": "MMT",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "evapotranspirationYear": {
+    "type": "Property",
+    "value": 1012.5,
+    "unitCode": "MMT",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "sunrise": {
+    "type": "Property",
+    "value": "07:28",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "sunset": {
+    "type": "Property",
+    "value": "17:22",
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [-8.79, 39.16]
+    },
+    "observedAt": "2026-11-18T09:45:00Z"
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.Weather/master/context.jsonld",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

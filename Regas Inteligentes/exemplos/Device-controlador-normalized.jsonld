@@ -1,0 +1,36 @@
+{
+  "id": "urn:ngsi-ld:Device:ControladorRega_12",
+  "type": "Device",
+  "name": {
+    "type": "Property",
+    "value": "Jardim do Exemplo - Caixa 1",
+    "observedAt": "2026-11-15T00:00:51Z"
+  },
+  "category": {
+    "type": "Property",
+    "value": ["actuator", "irrSystem"],
+    "observedAt": "2026-11-15T00:00:51Z"
+  },
+  "deviceModelName": {
+    "type": "Property",
+    "value": "CMBATT6",
+    "observedAt": "2026-11-15T00:00:51Z"
+  },
+  "loraWanDEVEUI": {
+    "type": "Property",
+    "value": "39363134A1B2C3D4",
+    "observedAt": "2026-11-15T00:00:51Z"
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [-8.6862, 39.2351]
+    },
+    "observedAt": "2026-11-15T00:00:51Z"
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.Device/master/context.jsonld",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "urn:ngsi-ld:Device:Estacao_Meteorologica_2",
+  "type": "Device",
+  "name": {
+    "type": "Property",
+    "value": "Estação Meteorológica",
+    "observedAt": "2026-11-15T00:00:44Z"
+  },
+  "category": {
+    "type": "Property",
+    "value": "sensor",
+    "observedAt": "2026-11-15T00:00:44Z"
+  },
+  "controlledProperty": {
+    "type": "Property",
+    "value": [
+      "temperature",
+      "humidity",
+      "atmosphericPressure",
+      "windSpeed",
+      "windDirection",
+      "precipitation",
+      "solarRadiation"
+    ],
+    "observedAt": "2026-11-15T00:00:44Z"
+  },
+  "deviceModelName": {
+    "type": "Property",
+    "value": "meteo",
+    "observedAt": "2026-11-15T00:00:44Z"
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [-8.79, 39.16]
+    },
+    "observedAt": "2026-11-15T00:00:44Z"
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.Device/master/context.jsonld",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

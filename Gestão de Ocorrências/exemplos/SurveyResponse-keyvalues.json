@@ -1,0 +1,14 @@
+{
+  "id": "urn:ngsi-ld:SurveyResponse:SR-2026-0000001",
+  "type": "SurveyResponse",
+  "survey": "satisfaction-survey",
+  "answers": [
+    { "q": "q1", "value": 4 },
+    { "q": "q2", "value": 3 },
+    { "q": "q3", "value": 5 },
+    { "q": "q4", "value": 1 }
+  ],
+  "anonymous": true,
+  "submittedAt": "2026-11-14T11:20:00Z",
+  "channel": "citizen-app"
+}

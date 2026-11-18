@@ -1,0 +1,43 @@
+{
+  "id": "urn:ngsi-ld:AgriParcelOperation:ControladorRega_12_prog_1",
+  "type": "AgriParcelOperation",
+  "operationType": "water",
+  "status": "scheduled",
+  "hasAgriParcel": "urn:ngsi-ld:AgriParcel:JardimDoExemplo",
+  "operatedBy": "urn:ngsi-ld:Device:ControladorRega_12",
+  "irrigationSchedule": {
+    "programNumber": 1,
+    "enabled": true,
+    "running": false,
+    "allDays": false,
+    "daysOfWeek": {
+      "monday": true,
+      "tuesday": false,
+      "wednesday": true,
+      "thursday": false,
+      "friday": true,
+      "saturday": false,
+      "sunday": true
+    },
+    "startTimes": ["06:00", "21:30"],
+    "startTimesAreIntervals": false,
+    "durationUnit": "minutes",
+    "valveSequence": [
+      { "order": 1, "valve": 1, "duration": 15 },
+      { "order": 2, "valve": 2, "duration": 10 },
+      { "order": 3, "valve": 3, "duration": 12 }
+    ]
+  },
+  "valveStatus": [
+    { "valve": 1, "alias": "Output 1", "open": false },
+    { "valve": 2, "alias": "Output 2", "open": false },
+    { "valve": 3, "alias": "Output 3", "open": false },
+    { "valve": 4, "alias": "Output 4", "open": false },
+    { "valve": 5, "alias": "Output 5", "open": false },
+    { "valve": 6, "alias": "Output 6", "open": false }
+  ],
+  "location": {
+    "type": "Point",
+    "coordinates": [-8.6862, 39.2351]
+  }
+}

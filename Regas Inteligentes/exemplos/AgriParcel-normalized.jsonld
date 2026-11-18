@@ -1,0 +1,35 @@
+{
+  "id": "urn:ngsi-ld:AgriParcel:JardimDoExemplo",
+  "type": "AgriParcel",
+  "name": {
+    "type": "Property",
+    "value": "Jardim do Exemplo"
+  },
+  "addressLocality": {
+    "type": "Property",
+    "value": "Santarém"
+  },
+  "addressCountry": {
+    "type": "Property",
+    "value": "PT"
+  },
+  "hasDevice": {
+    "type": "Relationship",
+    "object": [
+      "urn:ngsi-ld:Device:ControladorRega_12",
+      "urn:ngsi-ld:Device:ControladorRega_13",
+      "urn:ngsi-ld:Device:Caudalimetro_15"
+    ]
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [-8.686, 39.235]
+    }
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.AgriFood/master/context.jsonld",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}
